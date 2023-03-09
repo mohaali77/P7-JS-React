@@ -19,25 +19,22 @@ function recipesFactory(recipes) {
 
         const time = document.createElement('div')
         time.classList.add('time')
-        time.innerText = recipes.time
+        time.innerText = recipes.time + ' min'
+
+        const timeIcon = document.createElement('i')
+        timeIcon.classList.add('fa-regular')
+        timeIcon.classList.add('fa-clock')
 
         const ingredients_description = document.createElement('div')
         ingredients_description.classList.add('ingredients_description')
 
-        const ingredients = document.createElement('div')
-        ingredients.classList.add('ingredients')
-
-        const oneIngredient = document.createElement('div')
-        oneIngredient.classList.add('oneIngredient')
-        oneIngredient.innerText = 'ingredient :'
-
-        const quantity = document.createElement('div')
-        quantity.classList.add('quantity')
-        quantity.innerText = ' 400ml'
+        const divIngredients = document.createElement('div')
+        divIngredients.classList.add('ingredients')
 
         const description = document.createElement('div')
         description.classList.add('description')
         description.innerText = recipes.description
+
 
         article.appendChild(image)
         article.appendChild(information)
@@ -48,12 +45,39 @@ function recipesFactory(recipes) {
         title_time.appendChild(title)
         title_time.appendChild(time)
 
-        ingredients_description.appendChild(ingredients)
-        ingredients_description.appendChild(oneIngredient)
+        time.prepend(timeIcon);
+
+        ingredients_description.appendChild(divIngredients)
         ingredients_description.appendChild(description)
 
-        ingredients.appendChild(oneIngredient)
-        oneIngredient.appendChild(quantity)
+        recipes.ingredients.forEach(ingredients => {
+
+            let quantity = ingredients.quantity
+            let ingredient = ingredients.ingredient
+            let unit = ingredients.unit
+
+            const oneIngredient = document.createElement('div')
+            oneIngredient.classList.add('oneIngredient')
+            const divQuantity = document.createElement('div')
+            divQuantity.classList.add('quantity')
+
+
+            if (unit) {
+                oneIngredient.innerText = ingredient + ':' + ' '
+                divQuantity.innerText = quantity + ' ' + unit
+            } else if (quantity) {
+                oneIngredient.innerText = ingredient + ': '
+                divQuantity.innerText = quantity
+            } else {
+                oneIngredient.innerText = ingredient
+            }
+
+
+            ingredients_description.appendChild(oneIngredient)
+            divIngredients.appendChild(oneIngredient)
+            oneIngredient.appendChild(divQuantity)
+
+        });
 
         console.log(article);
         return (article)

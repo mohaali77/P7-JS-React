@@ -1,6 +1,6 @@
 body {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 90px;
+    margin-right: 90px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -99,23 +99,26 @@ header img {
 #recipesSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 45px;
+    gap: 40px;
     margin-top: 20px;
+}
+
+article {
+    height: 300px;
+    margin-bottom: 50px;
 }
 
 article .image {
     background: #c7bebe;
-    height: 145px;
+    height: 60%;
     border-radius: 5px 5px 0px 0px;
 }
 
 article .information {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px;
     background: #e7e7e7;
     border-radius: 0px 0px 5px 5px;
+    height: 50%;
 }
 
 article .title_time {
@@ -124,8 +127,16 @@ article .title_time {
     margin-bottom: 15px;
 }
 
+article .title_time .title {
+    width: 70%;
+}
+
 article .time {
     font-weight: bold;
+}
+
+article .time .fa-clock {
+    margin-right: 5px;
 }
 
 article .ingredients_description {
@@ -134,15 +145,16 @@ article .ingredients_description {
 }
 
 article .ingredients {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 
 article .description {
-    width: 50%;
-    text-overflow: ellipsis;
+    width: 40%;
+    max-height: 95px;
+    overflow: auto;
 }
 
 article .ingredients .oneIngredient {
@@ -152,5 +164,6 @@ article .ingredients .oneIngredient {
 }
 
 article .ingredients .quantity {
-    font-weight: normal
+    font-weight: normal;
+    margin-left: 2px;
 }

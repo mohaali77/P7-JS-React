@@ -21,6 +21,7 @@ fetch('./data/recipes.json')
 
             //pour chaque photographe :
             recipes.forEach((recipes) => {
+
                 //on appelle la fonction photographerFactory 
                 const recipesModel = recipesFactory(recipes);
                 //on appelle la fonction userCard de chaque utilisateurs
