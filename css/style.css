@@ -1,0 +1,156 @@
+body {
+    margin-left: 100px;
+    margin-right: 100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+header img {
+    width: 230px;
+}
+
+#search {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#search #recherche {
+    height: 50px;
+    width: 100%;
+    background: #e2e2e2;
+    border-radius: 5px;
+    border: transparent;
+    margin-bottom: 20px;
+}
+
+#search #ingredients {
+    height: 50px;
+    background: #3484f4;
+    border-radius: 5px;
+    border: transparent;
+    margin-right: 15px;
+    width: 130px;
+    padding-left: 10px;
+}
+
+#search #appareils {
+    height: 50px;
+    background: #68d9a4;
+    border-radius: 5px;
+    border: transparent;
+    margin-right: 15px;
+    width: 130px;
+    padding-left: 10px;
+}
+
+#search #ustensiles {
+    height: 50px;
+    background: #ed6504;
+    border-radius: 5px;
+    border: transparent;
+    width: 130px;
+    padding-left: 10px;
+}
+
+#search #ingredients::placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+#search #appareils::placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+#search #ustensiles::placeholder {
+    color: white;
+    font-weight: bold;
+}
+
+#tagSection {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #3484f4;
+    font-size: 12px;
+    padding: 10px;
+    color: #ffff;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.tag i {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+#recipesSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 45px;
+    margin-top: 20px;
+}
+
+article .image {
+    background: #c7bebe;
+    height: 145px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+article .information {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #e7e7e7;
+    border-radius: 0px 0px 5px 5px;
+}
+
+article .title_time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+article .time {
+    font-weight: bold;
+}
+
+article .ingredients_description {
+    display: flex;
+    font-size: 10px;
+}
+
+article .ingredients {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+article .description {
+    width: 50%;
+    text-overflow: ellipsis;
+}
+
+article .ingredients .oneIngredient {
+    width: 100%;
+    display: flex;
+    font-weight: bold;
+}
+
+article .ingredients .quantity {
+    font-weight: normal
+}
