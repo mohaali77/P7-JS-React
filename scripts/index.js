@@ -8,6 +8,8 @@ fetch('./data/recipes.json')
             //on récupère les données des photographes.
             let recipes = data.recipes
             console.log(recipes);
+
+
             // on retourne le tableau photographers seulement une fois récupéré
             return ({
                 recipes: [...recipes]
@@ -21,7 +23,6 @@ fetch('./data/recipes.json')
 
             //pour chaque photographe :
             recipes.forEach((recipes) => {
-
                 //on appelle la fonction photographerFactory 
                 const recipesModel = recipesFactory(recipes);
                 //on appelle la fonction userCard de chaque utilisateurs
@@ -29,6 +30,9 @@ fetch('./data/recipes.json')
                 //ici on va intégrer ces userCards à l'intérieur de la section des photographes
                 recipesSection.appendChild(recipesCardDOM);
             });
+
+            const recipes2Model = recipes2Factory(recipes);
+            const searchIngredients = recipes2Model.searchIngredients();
         }
 
         async function init() {

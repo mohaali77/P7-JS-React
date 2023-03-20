@@ -17,7 +17,7 @@
                 {
                     "ingredient": "Crème de coco",
                     "quantity": 2,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "Sucre",
@@ -33,8 +33,8 @@
             "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
             "appliance": "Blender",
             "ustensils": [
-                "cuillère à Soupe",
-                "verres",
+                "Cuillère à Soupe",
+                "Verres",
                 "presse citron"
             ]
         },
@@ -71,7 +71,7 @@
                 }
             ],
             "time": 60,
-            "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouvez ajouter 1 à 2 cuillères à soupe de Crème de coco",
+            "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouvez ajouter 1 à 2 Cuillère à soupe de Crème de coco",
             "appliance": "Saladier",
             "ustensils": [
                 "presse citron"
@@ -107,14 +107,14 @@
                 {
                     "ingredient": "Huile d'olive",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 80,
             "description": "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
             "appliance": "Cocotte",
             "ustensils": [
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -180,7 +180,7 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity": 2,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "gruyère râpé",
@@ -190,7 +190,7 @@
                 {
                     "ingredient": "Moutarde de Dijon",
                     "quantity": 1,
-                    "unite": "cuillères à soupe"
+                    "unite": "Cuillère à soupe"
                 }
             ],
             "time": 45,
@@ -199,7 +199,7 @@
             "ustensils": [
                 "moule à tarte",
                 "râpe à fromage",
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -355,8 +355,8 @@
             "description": "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
             "appliance": "Saladier",
             "ustensils": [
-                "cuillère en bois",
-                "couteau"
+                "Cuillère en bois",
+                "Couteau"
             ]
         },
         {
@@ -394,7 +394,7 @@
             "appliance": "Four",
             "ustensils": [
                 "plat à gratin",
-                "couteau",
+                "Couteau",
                 "Économe"
             ]
         },
@@ -433,11 +433,11 @@
                 }
             ],
             "time": 10,
-            "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
+            "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la Cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
             "appliance": "Saladier",
             "ustensils": [
-                "couteau",
-                "cuillère à melon"
+                "Couteau",
+                "Cuillère à melon"
             ]
         },
         {
@@ -469,7 +469,7 @@
             "description": "Éplucher les fruits et les couper en morceaux, les mettre dans une casserole en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
             "appliance": "Casserole",
             "ustensils": [
-                "couteau",
+                "Couteau",
                 "économe"
             ]
         },
@@ -495,21 +495,21 @@
                 {
                     "ingredient": "Vinaigre de cidre",
                     "quantity": 1,
-                    "unit": "cuillère à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "huile d'olive",
                     "quantity": 2,
-                    "unit": "cuillère à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 40,
             "description": "Cuire les pommes de terre environ 30 minutes. Découper les échalotes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
             "appliance": "Casserole",
             "ustensils": [
-                "couteau",
+                "Couteau",
                 "saladier",
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -549,8 +549,8 @@
             "description": "Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidir. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les crêpes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
             "appliance": "Four",
             "ustensils": [
-                "poêle à frire",
-                "couteau"
+                "Poêle à frire",
+                "Couteau"
             ]
         },
         {
@@ -593,7 +593,7 @@
             "ustensils": [
                 "saladier",
                 "louche",
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -624,7 +624,7 @@
                 {
                     "ingredient": "huile d'olives",
                     "quantity": 2,
-                    "unit": "cuillère à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 45,
@@ -632,7 +632,7 @@
             "appliance": "Four",
             "ustensils": [
                 "plat à gratin",
-                "couteau",
+                "Couteau",
                 "râpe à fromage"
             ]
         },
@@ -653,7 +653,7 @@
                 {
                     "ingredient": "Jus de citron",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "Glaçons",
@@ -664,11 +664,11 @@
                 }
             ],
             "time": 15,
-            "description": "Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un cuillère à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques feuilles de menthe pour plus de fraîcheur. Mixez le tout. Servir et déguster.",
+            "description": "Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un Cuillère à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques feuilles de menthe pour plus de fraîcheur. Mixez le tout. Servir et déguster.",
             "appliance": "Blender",
             "ustensils": [
-                "verres",
-                "couteau",
+                "Verres",
+                "Couteau",
                 "presse citron"
             ]
         },
@@ -693,11 +693,11 @@
                 }
             ],
             "time": 10,
-            "description": "Séparez 1/5ème d'Ananas ( une belle tranche qui servira pour la décoration des verres ), mettre le reste coupé en cubes au blender, ajouter la glace à la vanille et le lait. Mixez. Servir et décorer avec l'ananas restant. C'est prêt",
+            "description": "Séparez 1/5ème d'Ananas ( une belle tranche qui servira pour la décoration des Verres ), mettre le reste coupé en cubes au blender, ajouter la glace à la vanille et le lait. Mixez. Servir et décorer avec l'ananas restant. C'est prêt",
             "appliance": "Blender",
             "ustensils": [
-                "verres",
-                "couteau"
+                "Verres",
+                "Couteau"
             ]
         },
         {
@@ -732,8 +732,8 @@
             "description": "Coupez les fruits en morceaux, ajouter le jus de citron et le lait ainsi que le sucre glace. Mixez. Ajoutez des glaçons si le lait n'a pas été mis au frais.",
             "appliance": "Blender",
             "ustensils": [
-                "couteau",
-                "verres",
+                "Couteau",
+                "Verres",
                 "presse citron"
             ]
         },
@@ -765,7 +765,7 @@
                 {
                     "ingredient": "huile d'olive",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 30,
@@ -773,7 +773,7 @@
             "appliance": "Sauteuse",
             "ustensils": [
                 "râpe à fromage",
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -808,7 +808,7 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 30,
@@ -817,7 +817,7 @@
             "ustensils": [
                 "Cuillère en bois",
                 "louche",
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -934,15 +934,15 @@
                 {
                     "ingredient": "Mayonnaise",
                     "quantity": 2,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 40,
             "description": "Découper le concombre et les tomates en dés, les mettre dans un saladier avec le mais et les miettes de poisson, ajouter les pates. Ajouter la mayonnaise. Mélanger le tout et servir frais.",
             "appliance": "Saladier",
             "ustensils": [
-                "couteau",
-                "cuillère en bois"
+                "Couteau",
+                "Cuillère en bois"
             ]
         },
         {
@@ -1015,7 +1015,7 @@
             "appliance": "Mixer",
             "ustensils": [
                 "cocotte minute",
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -1034,12 +1034,12 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity": 4,
-                    "unit": "cuillère à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "Vermicelles",
                     "quantity": 1,
-                    "unit": "verres"
+                    "unit": "Verres"
                 },
                 {
                     "ingredient": "Beurre salé",
@@ -1051,8 +1051,8 @@
             "description": "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une fois prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crème fraîche",
             "appliance": "Casserole",
             "ustensils": [
-                "couteau",
-                "cuillère en bois"
+                "Couteau",
+                "Cuillère en bois"
             ]
         },
         {
@@ -1090,7 +1090,7 @@
             "appliance": "Mixer",
             "ustensils": [
                 "casserole",
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -1123,7 +1123,7 @@
             "description": "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
             "appliance": "Mixer",
             "ustensils": [
-                "cuillère en bois",
+                "Cuillère en bois",
                 "presse citron"
             ]
         },
@@ -1152,7 +1152,7 @@
             "appliance": "Mixer",
             "ustensils": [
                 "casserole",
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -1233,8 +1233,8 @@
             "appliance": "Four",
             "ustensils": [
                 "râpe à fromage",
-                "cuillère à Soupe",
-                "couteau"
+                "Cuillère à Soupe",
+                "Couteau"
             ]
         },
         {
@@ -1259,20 +1259,20 @@
                 {
                     "ingredient": "Fromage blanc",
                     "quantity": 4,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "Jus de citron",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 5,
             "description": "Mélanger le fromage blanc avec le citron. Ajouter un peu de sel et poivre à votre gout. Faire dorer le pain de mie. Puis étaler le mélange. Ajouter une feuille de salade puis le saumon fumé. C'est prêt.",
             "appliance": "Four",
             "ustensils": [
-                "couteau",
-                "cuillère en bois"
+                "Couteau",
+                "Cuillère en bois"
             ]
         },
         {
@@ -1302,9 +1302,9 @@
             "description": "Éplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserole d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
             "appliance": "Mixer",
             "ustensils": [
-                "couteau",
+                "Couteau",
                 "économe",
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -1328,12 +1328,12 @@
                 {
                     "ingredient": "Crème fraîche",
                     "quantity": 2,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 },
                 {
                     "ingredient": "Cumin",
                     "quantity": 1,
-                    "unit": "cuillères à café"
+                    "unit": "Cuillère à café"
                 },
                 {
                     "ingredient": "Noix de muscade",
@@ -1346,8 +1346,8 @@
             "appliance": "Mixer",
             "ustensils": [
                 "cocotte minute",
-                "couteau",
-                "cuillère en bois"
+                "Couteau",
+                "Cuillère en bois"
             ]
         },
         {
@@ -1381,7 +1381,7 @@
                 {
                     "ingredient": "Maïzena",
                     "quantity": 1,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 35,
@@ -1431,8 +1431,8 @@
             "description": "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
             "appliance": "Four",
             "ustensils": [
-                "couteau",
-                "cuillère en bois",
+                "Couteau",
+                "Cuillère en bois",
                 "Poêle à frire"
             ]
         },
@@ -1500,7 +1500,7 @@
             "appliance": "Four",
             "ustensils": [
                 "saladier",
-                "couteau",
+                "Couteau",
                 "fouet"
             ]
         },
@@ -1521,19 +1521,19 @@
                 {
                     "ingredient": "Sucre en poudre",
                     "quantity": 4,
-                    "unit": "cuillères à café"
+                    "unit": "Cuillère à café"
                 },
                 {
                     "ingredient": "Bicarbonate",
                     "quantity": 1,
-                    "unit": "cuillères à café"
+                    "unit": "Cuillère à café"
                 }
             ],
             "time": 10,
             "description": "Dans un saladier mettre l'eau, le jus des citrons et le sucre. Bien mélanger. Ajouter le bicarbonate. Servir. Ajouter des glaçon et une feuille de menthe pour la déco.",
             "appliance": "Saladier",
             "ustensils": [
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -1557,12 +1557,12 @@
                 }
             ],
             "time": 20,
-            "description": "Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
+            "description": "Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des Verres. Mettre au frais",
             "appliance": "Casserole",
             "ustensils": [
                 "fouet",
                 "spatule",
-                "verres"
+                "Verres"
             ]
         },
         {
@@ -1594,7 +1594,7 @@
             "appliance": "Moule à charlotte",
             "ustensils": [
                 "saladier",
-                "couteau",
+                "Couteau",
                 "fouet"
             ]
         },
@@ -1667,10 +1667,10 @@
                 }
             ],
             "time": 15,
-            "description": "Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres",
+            "description": "Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une Cuillère en bois. Mettre dans des Verres",
             "appliance": "Casserole",
             "ustensils": [
-                "cuillère en bois"
+                "Cuillère en bois"
             ]
         },
         {
@@ -1747,7 +1747,7 @@
             "ustensils": [
                 "fouet",
                 "moule",
-                "verres"
+                "Verres"
             ]
         },
         {
@@ -1781,8 +1781,8 @@
             "appliance": "Saladier",
             "ustensils": [
                 "fouet",
-                "verres",
-                "cuillère en bois"
+                "Verres",
+                "Cuillère en bois"
             ]
         },
         {
@@ -1821,7 +1821,7 @@
             "ustensils": [
                 "rouleau à patisserie",
                 "râpe à fromage",
-                "couteau"
+                "Couteau"
             ]
         },
         {
@@ -1849,15 +1849,15 @@
                 {
                     "ingredient": "Miel",
                     "quantity": 2,
-                    "unit": "cuillères à soupe"
+                    "unit": "Cuillère à soupe"
                 }
             ],
             "time": 0,
             "description": "Découper les fruits. Le passer au blender jusqu'à obtenir une texture liquide. Mettre au frais. Servir",
             "appliance": "Blender",
             "ustensils": [
-                "couteau",
-                "verres"
+                "Couteau",
+                "Verres"
             ]
         },
         {

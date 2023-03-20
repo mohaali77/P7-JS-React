@@ -79,10 +79,61 @@ function recipesFactory(recipes) {
 
         });
 
-        console.log(article);
         return (article)
 
     }
 
-    return { getRecipesCardDOM }
+    function searchIngredients() {
+        /*recipes.ingredients.forEach(ingredients => {
+
+            let quantity = ingredients.quantity
+            let ingredient = ingredients.ingredient
+            let unit = ingredients.unit
+
+            console.log(ingredient);
+
+
+        });*/
+
+        console.log(recipes.ingredients);
+    }
+
+    return { getRecipesCardDOM, searchIngredients }
+}
+
+function recipes2Factory(recipes) {
+
+    function searchIngredients() {
+
+        let ingredients = new Set();
+
+        recipes.forEach(recipe => {
+            recipe.ingredients.forEach(ingredient => {
+                ingredients.add(ingredient.ingredient);
+            });
+        });
+
+        console.log(ingredients);
+
+        let ustensils = new Set();
+
+        recipes.forEach(recipe => {
+
+            recipe.ustensils.forEach(ustensil => {
+                ustensils.add(ustensil);
+            });
+        });
+
+        console.log(ustensils);
+
+        let appliances = new Set();
+
+        recipes.forEach(recipe => {
+            appliances.add(recipe.appliance);
+        });
+
+        console.log(appliances);
+    }
+
+    return { searchIngredients }
 }
