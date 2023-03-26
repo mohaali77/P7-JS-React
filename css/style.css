@@ -21,7 +21,7 @@ header img {
     flex-direction: column;
 }
 
-#search #recherche {
+#search #search-bar {
     height: 50px;
     width: 100%;
     background: #e2e2e2;
@@ -166,4 +166,8 @@ article .ingredients .oneIngredient {
 article .ingredients .quantity {
     font-weight: normal;
     margin-left: 2px;
+}
+
+#noResult {
+    display: none;
 }

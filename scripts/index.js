@@ -32,7 +32,8 @@ fetch('./data/recipes.json')
             });
 
             const recipes2Model = recipes2Factory(recipes);
-            const searchIngredients = recipes2Model.searchIngredients();
+            const searchFilter = recipes2Model.searchFilter();
+            const searchBar = recipes2Model.searchBar();
         }
 
         async function init() {

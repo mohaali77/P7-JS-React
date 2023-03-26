@@ -83,57 +83,99 @@ function recipesFactory(recipes) {
 
     }
 
-    function searchIngredients() {
-        /*recipes.ingredients.forEach(ingredients => {
-
-            let quantity = ingredients.quantity
-            let ingredient = ingredients.ingredient
-            let unit = ingredients.unit
-
-            console.log(ingredient);
-
-
-        });*/
-
-        console.log(recipes.ingredients);
-    }
-
-    return { getRecipesCardDOM, searchIngredients }
+    return { getRecipesCardDOM }
 }
 
 function recipes2Factory(recipes) {
 
-    function searchIngredients() {
+    function searchBar() {
+        const articles = document.querySelectorAll('article');
+        const champRecherche = document.querySelector('#search-bar');
 
-        let ingredients = new Set();
+        const filtrerArticles = () => {
+            const recherche = champRecherche.value.toLowerCase();
+            let isArticleFound = false;
+            if (recherche.length >= 3) {
+                articles.forEach(article => {
+                    const titre = article.querySelector('.title').textContent.toLowerCase();
+                    const ingredients = article.querySelector('.ingredients').textContent.toLowerCase();
+                    const description = article.querySelector('.description').textContent.toLowerCase();
+                    if (titre.includes(recherche) || ingredients.includes(recherche) || description.includes(recherche)) {
+                        article.style.display = 'block';
+                        isArticleFound = true;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+                if (!isArticleFound) {
+                    console.log('Aucun article trouvé');
+                    const recipesSection = document.querySelector('#recipesSection')
+                    const noResult = document.querySelector('#noResult')
+                    noResult.style.display = 'block'
+                } else if (isArticleFound) {
+                    console.log('Article trouvé');
+                    const noResult = document.querySelector('#noResult')
+                    noResult.style.display = 'none'
+                }
+            }
+        };
 
-        recipes.forEach(recipe => {
-            recipe.ingredients.forEach(ingredient => {
-                ingredients.add(ingredient.ingredient);
-            });
+        champRecherche.addEventListener('input', () => {
+            filtrerArticles();
         });
 
-        console.log(ingredients);
-
-        let ustensils = new Set();
-
-        recipes.forEach(recipe => {
-
-            recipe.ustensils.forEach(ustensil => {
-                ustensils.add(ustensil);
-            });
-        });
-
-        console.log(ustensils);
-
-        let appliances = new Set();
-
-        recipes.forEach(recipe => {
-            appliances.add(recipe.appliance);
-        });
-
-        console.log(appliances);
     }
 
-    return { searchIngredients }
+    function searchFilter() {
+
+        function ingredientsFilter() {
+
+            //creation d 'un tableau de tous les ingrédients
+            let ingredients = new Set();
+
+            recipes.forEach(recipe => {
+                recipe.ingredients.forEach(ingredient => {
+                    ingredients.add(ingredient.ingredient);
+                });
+            });
+
+            console.log(ingredients);
+
+        }
+
+        function appliancesFilter() {
+
+            //creation d'un tableau de tous les appareils
+            let appliances = new Set();
+
+            recipes.forEach(recipe => {
+                appliances.add(recipe.appliance);
+            });
+
+            console.log(appliances);
+
+        }
+
+        function ustensilsFilter() {
+
+            //creation d'un tableau de tous les ustensiles
+
+            let ustensils = new Set();
+
+            recipes.forEach(recipe => {
+
+                recipe.ustensils.forEach(ustensil => {
+                    ustensils.add(ustensil);
+                });
+            });
+
+            console.log(ustensils);
+
+        }
+
+        ingredientsFilter(), appliancesFilter(), ustensilsFilter()
+
+    }
+
+    return { searchFilter, searchBar }
 }
