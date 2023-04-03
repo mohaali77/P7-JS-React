@@ -88,43 +88,46 @@ function recipesFactory(recipes) {
 
 function recipes2Factory(recipes) {
 
-    function searchBar() {
-        const articles = document.querySelectorAll('article');
-        const champRecherche = document.querySelector('#search-bar');
+    function searchBar(recipes, searchString) {
+        // Vérifie que la recherche contient au moins 3 caractères
+        if (searchString.length < 3) {
+            return recipes;
+        }
 
-        const filtrerArticles = () => {
-            const recherche = champRecherche.value.toLowerCase();
-            let isArticleFound = false;
-            if (recherche.length >= 3) {
-                articles.forEach(article => {
-                    const titre = article.querySelector('.title').textContent.toLowerCase();
-                    const ingredients = article.querySelector('.ingredients').textContent.toLowerCase();
-                    const description = article.querySelector('.description').textContent.toLowerCase();
-                    if (titre.includes(recherche) || ingredients.includes(recherche) || description.includes(recherche)) {
-                        article.style.display = 'block';
-                        isArticleFound = true;
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
-                if (!isArticleFound) {
-                    console.log('Aucun article trouvé');
-                    const recipesSection = document.querySelector('#recipesSection')
-                    const noResult = document.querySelector('#noResult')
-                    noResult.style.display = 'block'
-                } else if (isArticleFound) {
-                    console.log('Article trouvé');
-                    const noResult = document.querySelector('#noResult')
-                    noResult.style.display = 'none'
-                }
-            }
-        };
+        // Convertit la chaîne de recherche en minuscules pour une recherche insensible à la casse
+        searchString = searchString.toLowerCase();
 
-        champRecherche.addEventListener('input', () => {
-            filtrerArticles();
+        // Utilise la méthode filter pour sélectionner les recettes qui contiennent la chaîne de recherche
+        const filteredRecipes = recipes.filter(recipe => {
+            // Vérifie si le titre, les ingrédients ou la description de la recette contiennent la chaîne de recherche
+            const titleMatch = recipe.title.toLowerCase().includes(searchString);
+            const ingredientsMatch = recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchString));
+            const descriptionMatch = recipe.description.toLowerCase().includes(searchString);
+
+            // Retourne true si la recette contient la chaîne de recherche dans l'un des champs
+            return titleMatch || ingredientsMatch || descriptionMatch;
         });
 
+        // Utilise la méthode map pour ajouter une propriété "score" à chaque recette, qui représente le nombre d'occurrences de la chaîne de recherche dans la recette
+        const scoredRecipes = filteredRecipes.map(recipe => {
+            // Concatène tous les champs de la recette (titre, ingrédients, description) en une seule chaîne de caractères
+            const allFields = recipe.title + recipe.ingredients.join(' ') + recipe.description;
+
+            // Utilise la méthode reduce pour compter le nombre d'occurrences de la chaîne de recherche dans la recette
+            const score = allFields.toLowerCase().split(searchString).length - 1;
+
+            // Retourne une copie de la recette avec une propriété "score" ajoutée
+            return { ...recipe, score };
+        });
+
+        // Utilise la méthode sort pour trier les recettes par score décroissant
+        const sortedRecipes = scoredRecipes.sort((a, b) => b.score - a.score);
+
+        // Retourne le tableau trié de recettes filtrées et notées
+        return sortedRecipes;
     }
+
+
 
     function searchFilter() {
 
