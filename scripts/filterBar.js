@@ -12,29 +12,9 @@ function filterBar() {
                 const container = document.querySelector('#container-ingredients')
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
-                console.log(inputAngle);
                 const ingredients = [];
 
-                inputAngle.addEventListener('click', () => {
-                    const ul = document.querySelector('.options-ingredients');
-                    ul.style.display = 'grid'
-                    //inputIngredients.appendChild(ul)
-                    ingredients.forEach(ingredient => {
-                        const li = document.createElement('li');
-                        li.innerText = ingredient
-                        input.removeAttribute('id', 'ingredients')
-                        input.setAttribute('id', 'ingredients-click')
-                        input.removeAttribute('placeholder', 'Ingredients')
-                        input.setAttribute('placeholder', 'Rechercher un ingredient')
-
-                        inputAngle.style.transform = 'rotate(180deg)'
-                        inputAngle.style.display = 'inline-block'
-
-                        ul.appendChild(li)
-                    })
-                })
-
-
+                //on récupère tout les ingrédients en 1 seul exemplaire  dans un tableau
                 recipes.forEach(recipe => {
                     recipe.ingredients.forEach(ingredient => {
                         if (!ingredients.includes(ingredient.ingredient)) {
@@ -42,8 +22,44 @@ function filterBar() {
                         }
                     });
                 });
-
                 console.log(ingredients);
+
+                //au clic sur la flèche, on affiche une liste, et on y insère dedans chaque ingrédients
+                inputAngle.addEventListener('click', () => {
+                    const ul = document.querySelector('.options-ingredients');
+                    ul.style.display = 'grid'
+                    ingredients.forEach(ingredient => {
+                        const li = document.createElement('li');
+                        li.innerText = ingredient
+                        //on ajoute et supprime des id pour pouvoir gérer le css selon si la liste est affiché ou non
+                        input.removeAttribute('id', 'ingredients')
+                        input.setAttribute('id', 'ingredients-click')
+                        input.removeAttribute('placeholder', 'Ingredients')
+                        input.setAttribute('placeholder', 'Rechercher un ingredient')
+                        //on fait tourner la flèche
+                        inputAngle.style.transform = 'rotate(180deg)'
+                        inputAngle.style.display = 'inline-block'
+                        ul.appendChild(li)
+                    })
+                })
+
+                //lors du clic à un endroit qui ne concerne pas le contenu du conteneur on masque la liste
+                document.addEventListener('click', (event) => {
+                    const ul = document.querySelector('.options-ingredients');
+                    const estMonElement = event.target === container || container.contains(event.target);
+                    const estMonBouton = event.target === inputAngle;
+
+                    if (!estMonBouton && !estMonElement) {
+                        //on masque la liste et on supprime son contenu de la liste pour éviter de l'avoir en double
+                        ul.style.display = 'none';
+                        ul.innerHTML = ''
+                        input.removeAttribute('id', 'ingredients-click')
+                        input.setAttribute('id', 'ingredients')
+                        input.removeAttribute('placeholder', 'Rechercher un ingredient')
+                        input.setAttribute('placeholder', 'Ingredients')
+                        inputAngle.style.transform = 'rotate(360deg)'
+                    }
+                });
 
             }
 
@@ -60,6 +76,7 @@ function filterBar() {
                     }
 
                 });
+                console.log(appliances);
 
                 inputAngle.addEventListener('click', () => {
                     const ul = document.querySelector('.options-appareils');
@@ -72,15 +89,30 @@ function filterBar() {
                         input.setAttribute('id', 'appareils-click')
                         input.removeAttribute('placeholder', 'Appareils')
                         input.setAttribute('placeholder', 'Rechercher un appareil')
-
                         inputAngle.style.transform = 'rotate(180deg)'
                         inputAngle.style.display = 'inline-block'
-
                         ul.appendChild(li)
                     })
                 })
 
-                console.log(appliances);
+                document.addEventListener('click', (event) => {
+                    const ul = document.querySelector('.options-appareils');
+                    const estMonElement = event.target === container || container.contains(event.target);
+                    const estMonBouton = event.target === inputAngle;
+
+                    if (!estMonBouton && !estMonElement) {
+                        ul.style.display = 'none';
+                        ul.innerHTML = ''
+                        input.removeAttribute('id', 'appareils-click')
+                        input.setAttribute('id', 'appareils')
+                        input.removeAttribute('placeholder', 'Rechercher un appareil')
+                        input.setAttribute('placeholder', 'Appareil')
+
+                        inputAngle.style.transform = 'rotate(360deg)'
+                    }
+                });
+
+
 
             }
 
@@ -112,13 +144,27 @@ function filterBar() {
                         input.setAttribute('id', 'ustensiles-click')
                         input.removeAttribute('placeholder', 'Ustensiles')
                         input.setAttribute('placeholder', 'Rechercher un ustensile')
-
                         inputAngle.style.transform = 'rotate(180deg)'
                         inputAngle.style.display = 'inline-block'
-
                         ul.appendChild(li)
                     })
                 })
+
+                document.addEventListener('click', (event) => {
+                    const ul = document.querySelector('.options-ustensiles');
+                    const estMonElement = event.target === container || container.contains(event.target);
+                    const estMonBouton = event.target === inputAngle;
+
+                    if (!estMonBouton && !estMonElement) {
+                        ul.style.display = 'none';
+                        ul.innerHTML = ''
+                        input.removeAttribute('id', 'ustensiles-click')
+                        input.setAttribute('id', 'ustensiles')
+                        input.removeAttribute('placeholder', 'Rechercher un ustensile')
+                        input.setAttribute('placeholder', 'Ustensile')
+                        inputAngle.style.transform = 'rotate(360deg)'
+                    }
+                });
 
 
                 const arrayTitleDom = []

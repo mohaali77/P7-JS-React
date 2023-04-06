@@ -92,6 +92,14 @@ input:focus {
     background-color: #eaa97b;
 }
 
+.options-appareils li:hover {
+    background-color: #b2cbbf;
+}
+
+.options-ingredients li:hover {
+    background-color: #8cb5f0;
+}
+
 .options-appareils {
     display: none;
     position: absolute;
@@ -216,7 +224,17 @@ input:focus {
 }
 
 #ustensiles-click::placeholder {
-    color: #e0b799;
+    color: #e8c9b3;
+    font-weight: bold;
+}
+
+#ingredients-click::placeholder {
+    color: #abc7ef;
+    font-weight: bold;
+}
+
+#appareils-click::placeholder {
+    color: #ffffff;
     font-weight: bold;
 }
 
