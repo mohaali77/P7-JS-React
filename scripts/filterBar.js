@@ -9,7 +9,31 @@ function filterBar() {
 
             function ingredientsFilter() {
 
+                const container = document.querySelector('#container-ingredients')
+                const input = container.querySelector('input')
+                const inputAngle = container.querySelector('.fa-angle-down')
+                console.log(inputAngle);
                 const ingredients = [];
+
+                inputAngle.addEventListener('click', () => {
+                    const ul = document.querySelector('.options-ingredients');
+                    ul.style.display = 'grid'
+                    //inputIngredients.appendChild(ul)
+                    ingredients.forEach(ingredient => {
+                        const li = document.createElement('li');
+                        li.innerText = ingredient
+                        input.removeAttribute('id', 'ingredients')
+                        input.setAttribute('id', 'ingredients-click')
+                        input.removeAttribute('placeholder', 'Ingredients')
+                        input.setAttribute('placeholder', 'Rechercher un ingredient')
+
+                        inputAngle.style.transform = 'rotate(180deg)'
+                        inputAngle.style.display = 'inline-block'
+
+                        ul.appendChild(li)
+                    })
+                })
+
 
                 recipes.forEach(recipe => {
                     recipe.ingredients.forEach(ingredient => {
@@ -25,6 +49,9 @@ function filterBar() {
 
             function appliancesFilter() {
 
+                const container = document.querySelector('#container-appareils')
+                const input = container.querySelector('input')
+                const inputAngle = container.querySelector('.fa-angle-down')
                 const appliances = [];
 
                 recipes.forEach(recipe => {
@@ -33,6 +60,25 @@ function filterBar() {
                     }
 
                 });
+
+                inputAngle.addEventListener('click', () => {
+                    const ul = document.querySelector('.options-appareils');
+                    ul.style.display = 'grid'
+                    //inputIngredients.appendChild(ul)
+                    appliances.forEach(appliance => {
+                        const li = document.createElement('li');
+                        li.innerText = appliance
+                        input.removeAttribute('id', 'input-appareils')
+                        input.setAttribute('id', 'appareils-click')
+                        input.removeAttribute('placeholder', 'Appareils')
+                        input.setAttribute('placeholder', 'Rechercher un appareil')
+
+                        inputAngle.style.transform = 'rotate(180deg)'
+                        inputAngle.style.display = 'inline-block'
+
+                        ul.appendChild(li)
+                    })
+                })
 
                 console.log(appliances);
 
@@ -43,8 +89,6 @@ function filterBar() {
                 const container = document.querySelector('#container-ustensiles')
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
-                console.log(inputAngle);
-
                 const ustensils = [];
 
                 recipes.forEach(recipe => {
@@ -54,6 +98,8 @@ function filterBar() {
                         }
                     });
                 });
+
+                console.log(ustensils);
 
                 inputAngle.addEventListener('click', () => {
                     const ul = document.querySelector('.options-ustensiles');
@@ -74,7 +120,6 @@ function filterBar() {
                     })
                 })
 
-                console.log(ustensils);
 
                 const arrayTitleDom = []
                 document.addEventListener('keydown', function (event) {

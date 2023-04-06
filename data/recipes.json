@@ -65,7 +65,7 @@
                     "quantity": 5
                 },
                 {
-                    "ingredient": "Lait de Coco",
+                    "ingredient": "Lait de coco",
                     "quantity": 100,
                     "unit": "ml"
                 }
@@ -225,7 +225,7 @@
                     "unit": "cl"
                 },
                 {
-                    "ingredient": "Sucre en Poudre",
+                    "ingredient": "Sucre en poudre",
                     "quantity": 100,
                     "unit": "grammes"
                 },
@@ -306,12 +306,12 @@
                     "quantity": 2
                 },
                 {
-                    "ingredient": "Sucre en Poudre",
+                    "ingredient": "Sucre en poudre",
                     "quantity": "110",
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "farine",
+                    "ingredient": "Farine",
                     "quantity": 90,
                     "unit": "grammes"
                 }
@@ -352,7 +352,7 @@
                 }
             ],
             "time": 15,
-            "description": "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+            "description": "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olive à votre gout.",
             "appliance": "Saladier",
             "ustensils": [
                 "Cuillère en bois",
@@ -498,7 +498,7 @@
                     "unit": "Cuillère à soupe"
                 },
                 {
-                    "ingredient": "huile d'olive",
+                    "ingredient": "Huile d'olive",
                     "quantity": 2,
                     "unit": "Cuillère à soupe"
                 }
@@ -622,7 +622,7 @@
                     "unit": "tiges"
                 },
                 {
-                    "ingredient": "huile d'olives",
+                    "ingredient": "huile d'olive",
                     "quantity": 2,
                     "unit": "Cuillère à soupe"
                 }
@@ -812,7 +812,7 @@
                 }
             ],
             "time": 30,
-            "description": "Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oignons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
+            "description": "Cuisiner la viande hachée dans une poêle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oignons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomate à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraîche à la viande hachée. Servir.",
             "appliance": "Casserole",
             "ustensils": [
                 "Cuillère en bois",
@@ -884,7 +884,7 @@
                     "quantity": 3
                 },
                 {
-                    "ingredient": "Crème Fraîche",
+                    "ingredient": "Crème fraîche",
                     "quantity": 20,
                     "unit": "cl"
                 },
@@ -998,7 +998,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Huile d'olives"
+                    "ingredient": "Huile d'olive"
                 },
                 {
                     "ingredient": "Oignon",
@@ -1408,7 +1408,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "Huile d'olives",
+                    "ingredient": "Huile d'olive",
                     "quantity": 25,
                     "unit": "cl"
                 },
@@ -1417,7 +1417,7 @@
                     "quantity": 1
                 },
                 {
-                    "ingredient": "Coulis de tomates",
+                    "ingredient": "Coulis de tomate",
                     "quantity": 20,
                     "unit": "cl"
                 },
@@ -1428,7 +1428,7 @@
                 }
             ],
             "time": 60,
-            "description": "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
+            "description": "Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomate. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage râpé",
             "appliance": "Four",
             "ustensils": [
                 "Couteau",
@@ -1661,7 +1661,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "farine",
+                    "ingredient": "Farine",
                     "quantity": 40,
                     "unit": "grammes"
                 }
@@ -1771,7 +1771,7 @@
                     "unit": "grammes"
                 },
                 {
-                    "ingredient": "Crème Fraîche",
+                    "ingredient": "Crème fraîche",
                     "quantity": 20,
                     "unit": "cl"
                 }

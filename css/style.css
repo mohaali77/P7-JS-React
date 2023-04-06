@@ -76,14 +76,16 @@ input:focus {
     background-color: #ed6504;
     z-index: 1;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 40px;
     list-style: none;
     font-size: 14px;
     color: #ffff;
+    align-items: center;
 }
 
 .options-ustensiles li {
     padding: 5px 15px;
+    width: 170.5px;
+
 }
 
 .options-ustensiles li:hover {
@@ -94,7 +96,7 @@ input:focus {
     display: none;
     position: absolute;
     top: 271px;
-    left: 402px;
+    left: 246px;
     padding: 0;
     margin: 0px;
     border-top: none;
@@ -102,21 +104,22 @@ input:focus {
     background-color: #68d9a4;
     z-index: 1;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 40px;
     list-style: none;
     font-size: 14px;
     color: #ffff;
+    align-items: center;
 }
 
 .options-appareils li {
     padding: 5px 15px;
+    width: 170.5px;
 }
 
 .options-ingredients {
     display: none;
     position: absolute;
     top: 271px;
-    left: 402px;
+    left: 90px;
     padding: 0;
     margin: 0px;
     border-top: none;
@@ -124,14 +127,15 @@ input:focus {
     background-color: #3484f4;
     z-index: 1;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 40px;
     list-style: none;
     font-size: 14px;
     color: #ffff;
+    align-items: center;
 }
 
 .options-ingredients li {
     padding: 5px 15px;
+    width: 170.5px;
 }
 
 #search #search-bar {
@@ -149,7 +153,6 @@ input:focus {
     background: #3484f4;
     border-radius: 5px;
     border: transparent;
-
     width: 130px;
     padding-left: 10px;
     color: #ffff;
@@ -182,6 +185,28 @@ input:focus {
 #ustensiles-click {
     height: 50px;
     background: #ed6504;
+    border-radius: 5px;
+    border: transparent;
+    width: 589px;
+    padding-left: 10px;
+    color: #ffff;
+    font-weight: bold;
+}
+
+#ingredients-click {
+    height: 50px;
+    background: #3484f4;
+    border-radius: 5px;
+    border: transparent;
+    width: 589px;
+    padding-left: 10px;
+    color: #ffff;
+    font-weight: bold;
+}
+
+#appareils-click {
+    height: 50px;
+    background: #68d9a4;
     border-radius: 5px;
     border: transparent;
     width: 589px;
