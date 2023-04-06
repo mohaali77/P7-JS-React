@@ -40,6 +40,11 @@ function filterBar() {
 
             function ustensilsFilter() {
 
+                const container = document.querySelector('#container-ustensiles')
+                const input = container.querySelector('input')
+                const inputAngle = container.querySelector('.fa-angle-down')
+                console.log(inputAngle);
+
                 const ustensils = [];
 
                 recipes.forEach(recipe => {
@@ -49,6 +54,25 @@ function filterBar() {
                         }
                     });
                 });
+
+                inputAngle.addEventListener('click', () => {
+                    const ul = document.querySelector('.options-ustensiles');
+                    ul.style.display = 'grid'
+                    //inputIngredients.appendChild(ul)
+                    ustensils.forEach(ustensil => {
+                        const li = document.createElement('li');
+                        li.innerText = ustensil
+                        input.removeAttribute('id', 'input-ustensiles')
+                        input.setAttribute('id', 'ustensiles-click')
+                        input.removeAttribute('placeholder', 'Ustensiles')
+                        input.setAttribute('placeholder', 'Rechercher un ustensile')
+
+                        inputAngle.style.transform = 'rotate(180deg)'
+                        inputAngle.style.display = 'inline-block'
+
+                        ul.appendChild(li)
+                    })
+                })
 
                 console.log(ustensils);
 
@@ -79,7 +103,7 @@ function filterBar() {
             appliancesFilter();
             ustensilsFilter()
         })
-        .catch(error => console.log(error));
+    //.catch(error => console.log(error));
 
 }
 
