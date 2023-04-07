@@ -67,7 +67,7 @@ input:focus {
 .options-ustensiles {
     display: none;
     position: absolute;
-    top: 271px;
+    top: 232px;
     left: 402px;
     padding: 0;
     margin: 0px;
@@ -103,7 +103,7 @@ input:focus {
 .options-appareils {
     display: none;
     position: absolute;
-    top: 271px;
+    top: 232px;
     left: 246px;
     padding: 0;
     margin: 0px;
@@ -126,7 +126,7 @@ input:focus {
 .options-ingredients {
     display: none;
     position: absolute;
-    top: 271px;
+    top: 232px;
     left: 90px;
     padding: 0;
     margin: 0px;

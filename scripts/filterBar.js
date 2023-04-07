@@ -24,44 +24,86 @@ function filterBar() {
                 });
                 console.log(ingredients);
 
-                //au clic sur la flèche, on affiche une liste, et on y insère dedans chaque ingrédients
                 inputAngle.addEventListener('click', () => {
                     const ul = document.querySelector('.options-ingredients');
-                    ul.style.display = 'grid'
-                    ingredients.forEach(ingredient => {
-                        const li = document.createElement('li');
-                        li.innerText = ingredient
-                        //on ajoute et supprime des id pour pouvoir gérer le css selon si la liste est affiché ou non
-                        input.removeAttribute('id', 'ingredients')
-                        input.setAttribute('id', 'ingredients-click')
-                        input.removeAttribute('placeholder', 'Ingredients')
-                        input.setAttribute('placeholder', 'Rechercher un ingredient')
-                        //on fait tourner la flèche
-                        inputAngle.style.transform = 'rotate(180deg)'
-                        inputAngle.style.display = 'inline-block'
-                        ul.appendChild(li)
-                    })
-                })
+                    // si la liste est déjà affichée on masque la liste. 
+                    if (ul.style.display === 'grid') {
+                        ul.style.display = 'none';
+                        ul.innerHTML = '';
+                        input.removeAttribute('id', 'ingredients-click');
+                        input.setAttribute('id', 'ingredients');
+                        input.removeAttribute('placeholder', 'Rechercher un ingredient');
+                        input.setAttribute('placeholder', 'Ingredients');
+                        inputAngle.style.transform = 'rotate(0deg)';
 
-                //lors du clic à un endroit qui ne concerne pas le contenu du conteneur on masque la liste
+                        // sinon on affiche la liste.
+                    } else {
+                        ul.style.display = 'grid';
+                        ingredients.forEach((ingredient) => {
+                            const li = document.createElement('li');
+                            li.innerText = ingredient;
+                            input.removeAttribute('id', 'ingredients');
+                            input.setAttribute('id', 'ingredients-click');
+                            input.removeAttribute('placeholder', 'Ingredients');
+                            input.setAttribute('placeholder', 'Rechercher un ingredient');
+                            inputAngle.style.transform = 'rotate(180deg)';
+                            inputAngle.style.display = 'inline-block';
+                            ul.appendChild(li);
+                        });
+                    }
+                });
+
+
+
+                function createTag() {
+
+                    inputAngle.addEventListener('click', () => {
+                        const ul = document.querySelector('.options-ingredients');
+                        if (ul.style.display === 'grid') {
+                            const list = document.querySelectorAll('li');
+                            list.forEach(li => {
+                                li.addEventListener('click', (event) => {
+                                    console.log(event.target.textContent);
+                                    const tagSection = document.querySelector('#tagSection')
+                                    const tag = document.createElement('div')
+                                    tag.textContent = event.target.textContent
+                                    tag.setAttribute('class', 'tag')
+                                    const i = document.createElement('i')
+                                    i.setAttribute('class', 'fa-sharp fa-regular fa-circle-xmark')
+                                    console.log(i);
+                                    tagSection.appendChild(tag)
+                                    tag.appendChild(i)
+                                    ul.style.top = '271px'
+
+                                })
+                            });
+                        }
+                    })
+
+                }
+
+                createTag()
+
+
                 document.addEventListener('click', (event) => {
                     const ul = document.querySelector('.options-ingredients');
                     const estMonElement = event.target === container || container.contains(event.target);
                     const estMonBouton = event.target === inputAngle;
-
                     if (!estMonBouton && !estMonElement) {
-                        //on masque la liste et on supprime son contenu de la liste pour éviter de l'avoir en double
                         ul.style.display = 'none';
-                        ul.innerHTML = ''
-                        input.removeAttribute('id', 'ingredients-click')
-                        input.setAttribute('id', 'ingredients')
-                        input.removeAttribute('placeholder', 'Rechercher un ingredient')
-                        input.setAttribute('placeholder', 'Ingredients')
-                        inputAngle.style.transform = 'rotate(360deg)'
+                        ul.innerHTML = '';
+                        input.removeAttribute('id', 'ingredients-click');
+                        input.setAttribute('id', 'ingredients');
+                        input.removeAttribute('placeholder', 'Rechercher un ingredient');
+                        input.setAttribute('placeholder', 'Ingredients');
+                        inputAngle.style.transform = 'rotate(0deg)';
                     }
                 });
 
             }
+
+
+
 
             function appliancesFilter() {
 
@@ -179,8 +221,6 @@ function filterBar() {
 
                     } console.log(arrayTitleDom);
                 });
-
-
 
                 //afficher barre avec suggestion etc. 
                 //récupérer tout les éléments du dom présents.
