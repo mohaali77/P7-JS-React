@@ -12,18 +12,18 @@ function filterBar() {
                 const container = document.querySelector('#container-ingredients')
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
-                const ingredients = [];
+                const arrayIngredients = [];
                 const arrayTag = []
 
                 //on récupère tout les ingrédients en 1 seul exemplaire  dans un tableau
                 recipes.forEach(recipe => {
                     recipe.ingredients.forEach(ingredient => {
-                        if (!ingredients.includes(ingredient.ingredient)) {
-                            ingredients.push(ingredient.ingredient);
+                        if (!arrayIngredients.includes(ingredient.ingredient)) {
+                            arrayIngredients.push(ingredient.ingredient);
                         }
                     });
                 });
-                console.log(ingredients);
+                console.log(arrayIngredients);
 
                 inputAngle.addEventListener('click', () => {
                     const ul = document.querySelector('.options-ingredients');
@@ -40,7 +40,7 @@ function filterBar() {
                         // sinon on affiche la liste.
                     } else {
                         ul.style.display = 'grid';
-                        ingredients.forEach((ingredient) => {
+                        arrayIngredients.forEach((ingredient) => {
                             const li = document.createElement('li');
                             li.innerText = ingredient;
                             input.removeAttribute('id', 'ingredients');
@@ -68,13 +68,25 @@ function filterBar() {
                                     const tagSection = document.querySelector('#tagSection')
                                     const tag = document.createElement('div')
                                     tag.textContent = event.target.textContent
-                                    tag.setAttribute('class', 'tag')
+                                    tag.setAttribute('class', 'tag-ingredients')
                                     const i = document.createElement('i')
                                     i.setAttribute('class', 'fa-sharp fa-regular fa-circle-xmark')
                                     console.log(i);
                                     tagSection.appendChild(tag)
                                     tag.appendChild(i)
                                     ul.style.top = '271px'
+
+
+                                    recipes.forEach((recipe) => {
+                                        // Parcourir chaque ingrédient de la recette
+                                        recipe.ingredients.forEach((ingredient) => {
+                                            // Vérifier si l'ingrédient est dans le tableau arrayIngredient
+                                            if (arrayTag.includes(ingredient.name)) {
+                                                // Afficher le titre de la recette
+                                                console.log(`L'ingrédient ${ingredient.name} est dans la recette ${recipe.title}`);
+                                            }
+                                        });
+                                    });
                                 })
                             });
                         }
@@ -90,7 +102,7 @@ function filterBar() {
                             const list = document.querySelectorAll('li');
                             list.forEach(li => {
                                 li.addEventListener('click', (event) => {
-                                    const allTag = document.querySelectorAll('.tag')
+                                    const allTag = document.querySelectorAll('.tag-ingredients')
                                     allTag.forEach(tag => {
                                         const i = tag.querySelector('i')
                                         i.addEventListener('click', (event) => {

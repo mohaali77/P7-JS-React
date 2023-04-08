@@ -259,7 +259,7 @@ input:focus {
     flex-wrap: wrap;
 }
 
-.tag {
+.tag-ingredients {
     background: #3484f4;
     font-size: 12px;
     padding: 10px;
@@ -270,7 +270,7 @@ input:focus {
     display: flex;
 }
 
-.tag i {
+.tag-ingredients i {
     font-size: 14px;
     margin-left: 5px;
 }
