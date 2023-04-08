@@ -13,6 +13,7 @@ function filterBar() {
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
                 const ingredients = [];
+                const arrayTag = []
 
                 //on récupère tout les ingrédients en 1 seul exemplaire  dans un tableau
                 recipes.forEach(recipe => {
@@ -63,7 +64,7 @@ function filterBar() {
                             const list = document.querySelectorAll('li');
                             list.forEach(li => {
                                 li.addEventListener('click', (event) => {
-                                    console.log(event.target.textContent);
+                                    arrayTag.push(event.target.textContent)
                                     const tagSection = document.querySelector('#tagSection')
                                     const tag = document.createElement('div')
                                     tag.textContent = event.target.textContent
@@ -74,15 +75,47 @@ function filterBar() {
                                     tagSection.appendChild(tag)
                                     tag.appendChild(i)
                                     ul.style.top = '271px'
-
                                 })
                             });
                         }
                     })
-
                 }
 
-                createTag()
+
+                function deleteTag() {
+
+                    inputAngle.addEventListener('click', () => {
+                        const ul = document.querySelector('.options-ingredients');
+                        if (ul.style.display === 'grid') {
+                            const list = document.querySelectorAll('li');
+                            list.forEach(li => {
+                                li.addEventListener('click', (event) => {
+                                    const allTag = document.querySelectorAll('.tag')
+                                    allTag.forEach(tag => {
+                                        const i = tag.querySelector('i')
+                                        i.addEventListener('click', (event) => {
+                                            const index = arrayTag.indexOf(event.target.parentNode.textContent);
+                                            if (index !== -1) {
+                                                arrayTag.splice(index, 1); // Supprime l'élément du tableau
+                                                console.log(arrayTag.length);
+                                                event.target.parentNode.remove()
+                                            }
+
+                                            if (arrayTag.length <= 0) {
+                                                ul.style.top = '232px'
+                                            }
+
+                                        })
+                                    });
+                                })
+                            });
+                        }
+                    })
+                }
+
+
+                createTag();
+                deleteTag();
 
 
                 document.addEventListener('click', (event) => {
