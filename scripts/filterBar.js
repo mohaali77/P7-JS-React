@@ -9,12 +9,14 @@ function filterBar() {
 
             function ingredientsFilter() {
 
+                //Récupération éléments DOM
                 const ingredientBar = document.querySelector('#ingredients');
                 const recipesSection = document.querySelector('#recipesSection');
                 const noResultSection = document.querySelector('#noResult');
                 const container = document.querySelector('#container-ingredients')
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
+
                 const arrayIngredients = [];
                 const arrayTag = []
 
@@ -28,36 +30,115 @@ function filterBar() {
                 });
                 console.log(arrayIngredients);
 
-                function showList() {
 
-                    inputAngle.addEventListener('click', () => {
-                        const ul = document.querySelector('.options-ingredients');
-                        // si la liste est déjà affichée on masque la liste. 
-                        if (ul.style.display === 'grid') {
-                            ul.style.display = 'none';
-                            ul.innerHTML = '';
-                            input.removeAttribute('id', 'ingredients-click');
-                            input.setAttribute('id', 'ingredients');
-                            input.removeAttribute('placeholder', 'Rechercher un ingredient');
-                            input.setAttribute('placeholder', 'Ingredients');
-                            inputAngle.style.transform = 'rotate(0deg)';
+                //fonction qui va afficher la liste des ingrédients du filtre 
+                function showFullList() {
 
+                    //lors du clic sur la flèche, ou sur l'input ou appel la fonction showlist
+                    inputAngle.addEventListener('click', showList)
+                    input.addEventListener('click', showList)
+
+                    function showList(event) {
+                        //si le clic vise la flècge
+                        if (event.target === inputAngle) {
+                            const ul = document.querySelector('.options-ingredients');
+                            // si la liste est déjà affichée on masque la liste. 
+                            if (ul.style.display === 'grid') {
+                                ul.style.display = 'none';
+                                //on supprime le contenu à chaque fois que l'on masque, car elle sera recréer
+                                ul.innerHTML = '';
+                                //on modifie les attributs de l'input (id, placeholder) pour agir sur le css
+                                input.removeAttribute('id', 'ingredients-click');
+                                input.setAttribute('id', 'ingredients');
+                                input.removeAttribute('placeholder', 'Rechercher un ingredient');
+                                input.setAttribute('placeholder', 'Ingredients');
+                                //la rotation de la flèche reste initial, vers le bas
+                                inputAngle.style.transform = 'rotate(0deg)';
+
+                            }
                             // sinon on affiche la liste.
-                        } else {
-                            ul.style.display = 'grid';
-                            arrayIngredients.forEach((ingredient) => {
-                                const li = document.createElement('li');
-                                li.innerText = ingredient;
+                            else {
+                                ul.style.display = 'grid';
+                                //pour chaque ingredient du tableau arrayIngredients :
+                                arrayIngredients.forEach((ingredient) => {
+                                    //on crée des balise li
+                                    const li = document.createElement('li');
+                                    //on ajoute un ingrédient dans chaque balise li
+                                    li.innerText = ingredient;
+                                    //on modifie les attributs de l'input (id, placeholder) pour agir sur le css
+                                    input.removeAttribute('id', 'ingredients');
+                                    input.setAttribute('id', 'ingredients-click');
+                                    input.removeAttribute('placeholder', 'Ingredients');
+                                    input.setAttribute('placeholder', 'Rechercher un ingredient');
+                                    //on modifie le css de l'input et de la flèche
+                                    input.style.width = '589px'
+                                    inputAngle.style.transform = 'rotate(180deg)';
+                                    inputAngle.style.display = 'inline-block';
+                                    //on ajoute les balise li à l'intérieur de la balise ul
+                                    ul.appendChild(li);
+                                });
+                            }
+                        }
+                        //si le clic vise l'input  
+                        else if (event.target === input) {
+                            const ul = document.querySelector('.options-ingredients');
+                            //lorsque du texte est saisie dans l'input :
+                            input.addEventListener('input', () => {
+                                //on récupère le texte saisie dans l'input tout en minuscule 
+                                const searchValue = input.value.toLowerCase();
+
+                                const filteredIngredients = arrayIngredients.filter((ingredient) => {
+                                    return ingredient.toLowerCase().includes(searchValue);
+                                });
+
+                                //on affiche la liste d'ingrédient
+                                ul.style.display = 'grid'
+                                //on supprime le contenu de la liste, car elle sera recréé
+                                ul.innerHTML = '';
+                                //pour chaque élément du tableau d'ingrédient qu'on aura été créer :
+                                filteredIngredients.forEach((ingredient) => {
+                                    //on crée des éléments li
+                                    const li = document.createElement('li');
+                                    //on ajoute dans chaque li, un ingredient de la liste
+                                    li.textContent = ingredient;
+                                    //on ajoute les balise li à la balise ul
+                                    ul.appendChild(li);
+                                });
+
+                                //on modifie les attributs de l'input (id, placeholder) pour agir sur le css
                                 input.removeAttribute('id', 'ingredients');
                                 input.setAttribute('id', 'ingredients-click');
                                 input.removeAttribute('placeholder', 'Ingredients');
                                 input.setAttribute('placeholder', 'Rechercher un ingredient');
+                                //on modifie le css de la flèche
                                 inputAngle.style.transform = 'rotate(180deg)';
                                 inputAngle.style.display = 'inline-block';
-                                ul.appendChild(li);
+
+                                //si le tableau qu'on a créé possède qu'un seul ingredient
+                                if (filteredIngredients.length === 1) {
+                                    //on modifie le css pour qu'il corresponde à la maquette
+                                    const inputClicked = document.querySelector('#ingredients-click')
+                                    ul.style.gridTemplateColumns = '1fr'
+                                    inputClicked.style.width = '188.5px';
+                                }
+                                //si le tableau qu'on a créé possède 2 ingredients
+                                else if (filteredIngredients.length === 2) {
+                                    //on modifie le css pour qu'il corresponde à la maquette
+                                    const inputClicked = document.querySelector('#ingredients-click')
+                                    ul.style.gridTemplateColumns = '1fr 1fr'
+                                    inputClicked.style.width = '389px';
+
+                                    //sinon 
+                                } else {
+                                    //on modifie le css pour qu'il corresponde à la maquette
+                                    const inputClicked = document.querySelector('#ingredients-click')
+                                    ul.style.gridTemplateColumns = '1fr 1fr 1fr'
+                                    inputClicked.style.width = '589px';
+                                }
                             });
                         }
-                    });
+                    }
+
                 }
 
                 function createTag() {
@@ -75,7 +156,6 @@ function filterBar() {
                                     tag.setAttribute('class', 'tag-ingredients')
                                     const i = document.createElement('i')
                                     i.setAttribute('class', 'fa-sharp fa-regular fa-circle-xmark')
-                                    console.log(i);
                                     tagSection.appendChild(tag)
                                     tag.appendChild(i)
                                     ul.style.top = '271px'
@@ -140,6 +220,26 @@ function filterBar() {
                                                     recipeCopy.time = recipe.time;
                                                 }
                                             });
+
+
+                                            const ingredientName = event.target.parentNode.textContent; // Obtenez le nom de l'ingrédient cliqué
+
+                                            console.log('Ingrédient cliqué :', ingredientName);
+                                            console.log('Tableau recipes :', recipes);
+                                            console.log('Tableau recipesCopy :', recipesCopy);
+
+                                            const recipeContainingIngredient = recipes.find(recipe => recipe.ingredients.some(ingredient => ingredient.ingredient === ingredientName));
+
+                                            if (recipeContainingIngredient && !recipesCopy.includes(recipeContainingIngredient)) {
+                                                // Si une recette contenant l'ingrédient cliqué est trouvée dans recipes et qu'elle n'a pas encore été copiée dans recipesCopy, on l'ajoute
+                                                recipesCopy.push(recipeContainingIngredient);
+                                            }
+
+                                            console.log('Recettes contenant l\'ingrédient :', recipesCopy);
+
+
+
+
                                         })
                                     });
                                 })
@@ -160,6 +260,8 @@ function filterBar() {
                             input.setAttribute('id', 'ingredients');
                             input.removeAttribute('placeholder', 'Rechercher un ingredient');
                             input.setAttribute('placeholder', 'Ingredients');
+                            input.value = ''
+                            input.style.width = '130px'
                             inputAngle.style.transform = 'rotate(0deg)';
                         }
                     });
@@ -203,11 +305,8 @@ function filterBar() {
                                             recipeCopy.time = recipe.time;
                                         }
                                     });
-                                    console.log(recipesCopy.length);
 
                                     const ingredientName = event.target.innerText; // Obtenez le nom de l'ingrédient cliqué
-
-                                    console.log(ingredientName);
 
                                     // Utilisez la méthode find() pour trouver les recettes qui contiennent l'ingrédient cliqué
                                     const recipesContainingIngredient = recipesCopy.filter(function (recipe) {
@@ -296,12 +395,11 @@ function filterBar() {
                 }
 
 
-
-                showList()
+                showFullList()
                 maskList()
                 createTag();
                 deleteTag();
-                filterFunction()
+
 
             }
 
@@ -336,127 +434,126 @@ function filterBar() {
 
 
 
-
-
-
-
-            function appliancesFilter() {
-
-                const container = document.querySelector('#container-appareils')
-                const input = container.querySelector('input')
-                const inputAngle = container.querySelector('.fa-angle-down')
-                const appliances = [];
-
-                recipes.forEach(recipe => {
-                    if (!appliances.includes(recipe.appliance)) {
-                        appliances.push(recipe.appliance);
-                    }
-
-                });
-                console.log(appliances);
-
-                inputAngle.addEventListener('click', () => {
-                    const ul = document.querySelector('.options-appareils');
-                    ul.style.display = 'grid'
-                    //inputIngredients.appendChild(ul)
-                    appliances.forEach(appliance => {
-                        const li = document.createElement('li');
-                        li.innerText = appliance
-                        input.removeAttribute('id', 'input-appareils')
-                        input.setAttribute('id', 'appareils-click')
-                        input.removeAttribute('placeholder', 'Appareils')
-                        input.setAttribute('placeholder', 'Rechercher un appareil')
-                        inputAngle.style.transform = 'rotate(180deg)'
-                        inputAngle.style.display = 'inline-block'
-                        ul.appendChild(li)
-                    })
-                })
-
-                document.addEventListener('click', (event) => {
-                    const ul = document.querySelector('.options-appareils');
-                    const estMonElement = event.target === container || container.contains(event.target);
-                    const estMonBouton = event.target === inputAngle;
-
-                    if (!estMonBouton && !estMonElement) {
-                        ul.style.display = 'none';
-                        ul.innerHTML = ''
-                        input.removeAttribute('id', 'appareils-click')
-                        input.setAttribute('id', 'appareils')
-                        input.removeAttribute('placeholder', 'Rechercher un appareil')
-                        input.setAttribute('placeholder', 'Appareil')
-
-                        inputAngle.style.transform = 'rotate(360deg)'
-                    }
-                });
-
-
-
-            }
-
-            function ustensilsFilter() {
-
-                const container = document.querySelector('#container-ustensiles')
-                const input = container.querySelector('input')
-                const inputAngle = container.querySelector('.fa-angle-down')
-                const ustensils = [];
-
-                recipes.forEach(recipe => {
-                    recipe.ustensils.forEach(ustensil => {
-                        if (!ustensils.includes(ustensil)) {
-                            ustensils.push(ustensil);
+            /*
+            
+            
+            
+                        function appliancesFilter() {
+            
+                            const container = document.querySelector('#container-appareils')
+                            const input = container.querySelector('input')
+                            const inputAngle = container.querySelector('.fa-angle-down')
+                            const appliances = [];
+            
+                            recipes.forEach(recipe => {
+                                if (!appliances.includes(recipe.appliance)) {
+                                    appliances.push(recipe.appliance);
+                                }
+            
+                            });
+                            console.log(appliances);
+            
+                            inputAngle.addEventListener('click', () => {
+                                const ul = document.querySelector('.options-appareils');
+                                ul.style.display = 'grid'
+                                //inputIngredients.appendChild(ul)
+                                appliances.forEach(appliance => {
+                                    const li = document.createElement('li');
+                                    li.innerText = appliance
+                                    input.removeAttribute('id', 'input-appareils')
+                                    input.setAttribute('id', 'appareils-click')
+                                    input.removeAttribute('placeholder', 'Appareils')
+                                    input.setAttribute('placeholder', 'Rechercher un appareil')
+                                    inputAngle.style.transform = 'rotate(180deg)'
+                                    inputAngle.style.display = 'inline-block'
+                                    ul.appendChild(li)
+                                })
+                            })
+            
+                            document.addEventListener('click', (event) => {
+                                const ul = document.querySelector('.options-appareils');
+                                const estMonElement = event.target === container || container.contains(event.target);
+                                const estMonBouton = event.target === inputAngle;
+            
+                                if (!estMonBouton && !estMonElement) {
+                                    ul.style.display = 'none';
+                                    ul.innerHTML = ''
+                                    input.removeAttribute('id', 'appareils-click')
+                                    input.setAttribute('id', 'appareils')
+                                    input.removeAttribute('placeholder', 'Rechercher un appareil')
+                                    input.setAttribute('placeholder', 'Appareil')
+            
+                                    inputAngle.style.transform = 'rotate(360deg)'
+                                }
+                            });
+            
+            
+            
                         }
-                    });
-                });
-
-                console.log(ustensils);
-
-                inputAngle.addEventListener('click', () => {
-                    const ul = document.querySelector('.options-ustensiles');
-                    ul.style.display = 'grid'
-                    //inputIngredients.appendChild(ul)
-                    ustensils.forEach(ustensil => {
-                        const li = document.createElement('li');
-                        li.innerText = ustensil
-                        input.removeAttribute('id', 'input-ustensiles')
-                        input.setAttribute('id', 'ustensiles-click')
-                        input.removeAttribute('placeholder', 'Ustensiles')
-                        input.setAttribute('placeholder', 'Rechercher un ustensile')
-                        inputAngle.style.transform = 'rotate(180deg)'
-                        inputAngle.style.display = 'inline-block'
-                        ul.appendChild(li)
-                    })
-                })
-
-                document.addEventListener('click', (event) => {
-                    const ul = document.querySelector('.options-ustensiles');
-                    const estMonElement = event.target === container || container.contains(event.target);
-                    const estMonBouton = event.target === inputAngle;
-
-                    if (!estMonBouton && !estMonElement) {
-                        ul.style.display = 'none';
-                        ul.innerHTML = ''
-                        input.removeAttribute('id', 'ustensiles-click')
-                        input.setAttribute('id', 'ustensiles')
-                        input.removeAttribute('placeholder', 'Rechercher un ustensile')
-                        input.setAttribute('placeholder', 'Ustensile')
-                        inputAngle.style.transform = 'rotate(360deg)'
-                    }
-                });
-
-
-
-
-                //afficher barre avec suggestion etc. 
-                //récupérer tout les éléments du dom présents.
-                //faire une comparaison des titres du fichier json avec ceux d'un tableau de titre qu'on aura créer
-                //si un des titres correspond, faire la comparaison si l'ustensil selectionné est le même que celui du fichier json
-                //recreé tout les éléments
-
-            }
-
+            
+                        function ustensilsFilter() {
+            
+                            const container = document.querySelector('#container-ustensiles')
+                            const input = container.querySelector('input')
+                            const inputAngle = container.querySelector('.fa-angle-down')
+                            const ustensils = [];
+            
+                            recipes.forEach(recipe => {
+                                recipe.ustensils.forEach(ustensil => {
+                                    if (!ustensils.includes(ustensil)) {
+                                        ustensils.push(ustensil);
+                                    }
+                                });
+                            });
+            
+                            console.log(ustensils);
+            
+                            inputAngle.addEventListener('click', () => {
+                                const ul = document.querySelector('.options-ustensiles');
+                                ul.style.display = 'grid'
+                                //inputIngredients.appendChild(ul)
+                                ustensils.forEach(ustensil => {
+                                    const li = document.createElement('li');
+                                    li.innerText = ustensil
+                                    input.removeAttribute('id', 'input-ustensiles')
+                                    input.setAttribute('id', 'ustensiles-click')
+                                    input.removeAttribute('placeholder', 'Ustensiles')
+                                    input.setAttribute('placeholder', 'Rechercher un ustensile')
+                                    inputAngle.style.transform = 'rotate(180deg)'
+                                    inputAngle.style.display = 'inline-block'
+                                    ul.appendChild(li)
+                                })
+                            })
+            
+                            document.addEventListener('click', (event) => {
+                                const ul = document.querySelector('.options-ustensiles');
+                                const estMonElement = event.target === container || container.contains(event.target);
+                                const estMonBouton = event.target === inputAngle;
+            
+                                if (!estMonBouton && !estMonElement) {
+                                    ul.style.display = 'none';
+                                    ul.innerHTML = ''
+                                    input.removeAttribute('id', 'ustensiles-click')
+                                    input.setAttribute('id', 'ustensiles')
+                                    input.removeAttribute('placeholder', 'Rechercher un ustensile')
+                                    input.setAttribute('placeholder', 'Ustensile')
+                                    inputAngle.style.transform = 'rotate(360deg)'
+                                }
+                            });
+            
+            
+            
+            
+                            //afficher barre avec suggestion etc. 
+                            //récupérer tout les éléments du dom présents.
+                            //faire une comparaison des titres du fichier json avec ceux d'un tableau de titre qu'on aura créer
+                            //si un des titres correspond, faire la comparaison si l'ustensil selectionné est le même que celui du fichier json
+                            //recreé tout les éléments
+            
+                        }*
+            ustensilsFilter()           
+            appliancesFilter();*/
             ingredientsFilter();
-            appliancesFilter();
-            ustensilsFilter()
         })
     //.catch(error => console.log(error));
 
