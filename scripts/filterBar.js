@@ -4,18 +4,21 @@ function filterBar() {
     fetch('./data/recipes.json')
         .then(response => response.json())
         .then(data => {
-            recipes = data.recipes;
+            let recipes = data.recipes;
             console.log(recipes);
 
             function ingredientsFilter() {
 
+                const ingredientBar = document.querySelector('#ingredients');
+                const recipesSection = document.querySelector('#recipesSection');
+                const noResultSection = document.querySelector('#noResult');
                 const container = document.querySelector('#container-ingredients')
                 const input = container.querySelector('input')
                 const inputAngle = container.querySelector('.fa-angle-down')
                 const arrayIngredients = [];
                 const arrayTag = []
 
-                //on récupère tout les ingrédients en 1 seul exemplaire  dans un tableau
+                //on récupère tout les ingrédients en 1 seul exemplaire dans un tableau
                 recipes.forEach(recipe => {
                     recipe.ingredients.forEach(ingredient => {
                         if (!arrayIngredients.includes(ingredient.ingredient)) {
@@ -25,36 +28,37 @@ function filterBar() {
                 });
                 console.log(arrayIngredients);
 
-                inputAngle.addEventListener('click', () => {
-                    const ul = document.querySelector('.options-ingredients');
-                    // si la liste est déjà affichée on masque la liste. 
-                    if (ul.style.display === 'grid') {
-                        ul.style.display = 'none';
-                        ul.innerHTML = '';
-                        input.removeAttribute('id', 'ingredients-click');
-                        input.setAttribute('id', 'ingredients');
-                        input.removeAttribute('placeholder', 'Rechercher un ingredient');
-                        input.setAttribute('placeholder', 'Ingredients');
-                        inputAngle.style.transform = 'rotate(0deg)';
+                function showList() {
 
-                        // sinon on affiche la liste.
-                    } else {
-                        ul.style.display = 'grid';
-                        arrayIngredients.forEach((ingredient) => {
-                            const li = document.createElement('li');
-                            li.innerText = ingredient;
-                            input.removeAttribute('id', 'ingredients');
-                            input.setAttribute('id', 'ingredients-click');
-                            input.removeAttribute('placeholder', 'Ingredients');
-                            input.setAttribute('placeholder', 'Rechercher un ingredient');
-                            inputAngle.style.transform = 'rotate(180deg)';
-                            inputAngle.style.display = 'inline-block';
-                            ul.appendChild(li);
-                        });
-                    }
-                });
+                    inputAngle.addEventListener('click', () => {
+                        const ul = document.querySelector('.options-ingredients');
+                        // si la liste est déjà affichée on masque la liste. 
+                        if (ul.style.display === 'grid') {
+                            ul.style.display = 'none';
+                            ul.innerHTML = '';
+                            input.removeAttribute('id', 'ingredients-click');
+                            input.setAttribute('id', 'ingredients');
+                            input.removeAttribute('placeholder', 'Rechercher un ingredient');
+                            input.setAttribute('placeholder', 'Ingredients');
+                            inputAngle.style.transform = 'rotate(0deg)';
 
-
+                            // sinon on affiche la liste.
+                        } else {
+                            ul.style.display = 'grid';
+                            arrayIngredients.forEach((ingredient) => {
+                                const li = document.createElement('li');
+                                li.innerText = ingredient;
+                                input.removeAttribute('id', 'ingredients');
+                                input.setAttribute('id', 'ingredients-click');
+                                input.removeAttribute('placeholder', 'Ingredients');
+                                input.setAttribute('placeholder', 'Rechercher un ingredient');
+                                inputAngle.style.transform = 'rotate(180deg)';
+                                inputAngle.style.display = 'inline-block';
+                                ul.appendChild(li);
+                            });
+                        }
+                    });
+                }
 
                 function createTag() {
 
@@ -75,24 +79,11 @@ function filterBar() {
                                     tagSection.appendChild(tag)
                                     tag.appendChild(i)
                                     ul.style.top = '271px'
-
-
-                                    recipes.forEach((recipe) => {
-                                        // Parcourir chaque ingrédient de la recette
-                                        recipe.ingredients.forEach((ingredient) => {
-                                            // Vérifier si l'ingrédient est dans le tableau arrayIngredient
-                                            if (arrayTag.includes(ingredient.name)) {
-                                                // Afficher le titre de la recette
-                                                console.log(`L'ingrédient ${ingredient.name} est dans la recette ${recipe.title}`);
-                                            }
-                                        });
-                                    });
                                 })
                             });
                         }
                     })
                 }
-
 
                 function deleteTag() {
 
@@ -117,6 +108,38 @@ function filterBar() {
                                                 ul.style.top = '232px'
                                             }
 
+                                            ////SUPPRIMER ET METTRE A JOUR ///////////////
+
+                                            const titlesDOM = document.querySelectorAll(".title")
+                                            const arrayTitle = []
+                                            let recipesCopy = []
+                                            titlesDOM.forEach(title => {
+                                                arrayTitle.push(title.textContent)
+                                            });
+
+                                            arrayTitle.forEach(title => {
+                                                const obj = {
+                                                    name: title,
+                                                    ingredients: [],
+                                                    description: null,
+                                                    time: null
+                                                };
+                                                recipesCopy.push(obj);
+                                            });
+
+                                            recipesCopy.forEach(function (recipeCopy) {
+                                                // Utilisez la méthode find() pour trouver l'objet correspondant dans le tableau recipes
+                                                const recipe = recipes.find(function (recipe) {
+                                                    return recipe.name === recipeCopy.name;
+                                                });
+
+                                                // Si un objet correspondant est trouvé, ajoutez le tableau d'ingrédients correspondant à l'objet arrayRecipes
+                                                if (recipe) {
+                                                    recipeCopy.ingredients = recipe.ingredients;
+                                                    recipeCopy.description = recipe.description;
+                                                    recipeCopy.time = recipe.time;
+                                                }
+                                            });
                                         })
                                     });
                                 })
@@ -125,27 +148,194 @@ function filterBar() {
                     })
                 }
 
+                function maskList() {
+                    document.addEventListener('click', (event) => {
+                        const ul = document.querySelector('.options-ingredients');
+                        const estMonElement = event.target === container || container.contains(event.target);
+                        const estMonBouton = event.target === inputAngle;
+                        if (!estMonBouton && !estMonElement) {
+                            ul.style.display = 'none';
+                            ul.innerHTML = '';
+                            input.removeAttribute('id', 'ingredients-click');
+                            input.setAttribute('id', 'ingredients');
+                            input.removeAttribute('placeholder', 'Rechercher un ingredient');
+                            input.setAttribute('placeholder', 'Ingredients');
+                            inputAngle.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                }
 
+                function filterFunction() {
+                    inputAngle.addEventListener('click', () => {
+                        const ul = document.querySelector('.options-ingredients');
+                        if (ul.style.display === 'grid') {
+                            const list = document.querySelectorAll('li');
+                            list.forEach(li => {
+                                li.addEventListener('click', (event) => {
+                                    //creation copie du tableau pour faire comparaison puis tri. 
+                                    const titlesDOM = document.querySelectorAll(".title")
+                                    const arrayTitle = []
+                                    const recipesCopy = []
+                                    titlesDOM.forEach(title => {
+                                        arrayTitle.push(title.textContent)
+                                    });
+
+                                    arrayTitle.forEach(title => {
+                                        const obj = {
+                                            name: title,
+                                            ingredients: [],
+                                            description: null,
+                                            time: null
+                                        };
+                                        recipesCopy.push(obj);
+                                    });
+
+                                    recipesCopy.forEach(function (recipeCopy) {
+                                        // Utilisez la méthode find() pour trouver l'objet correspondant dans le tableau recipes
+                                        const recipe = recipes.find(function (recipe) {
+                                            return recipe.name === recipeCopy.name;
+                                        });
+
+                                        // Si un objet correspondant est trouvé, ajoutez le tableau d'ingrédients correspondant à l'objet arrayRecipes
+                                        if (recipe) {
+                                            recipeCopy.ingredients = recipe.ingredients;
+                                            recipeCopy.description = recipe.description;
+                                            recipeCopy.time = recipe.time;
+                                        }
+                                    });
+                                    console.log(recipesCopy.length);
+
+                                    const ingredientName = event.target.innerText; // Obtenez le nom de l'ingrédient cliqué
+
+                                    console.log(ingredientName);
+
+                                    // Utilisez la méthode find() pour trouver les recettes qui contiennent l'ingrédient cliqué
+                                    const recipesContainingIngredient = recipesCopy.filter(function (recipe) {
+                                        return recipe.ingredients.some(function (ingredient) {
+                                            return ingredient.ingredient === ingredientName;
+                                        });
+                                    });
+
+
+                                    function createElement() {
+                                        console.log(recipesContainingIngredient);
+
+                                        if (recipesContainingIngredient.length === 0) {
+                                            noResultSection.style.display = 'block';
+                                            recipesSection.innerHTML = '';
+                                            console.log('aa');
+                                        } else {
+                                            console.log('bb');
+                                            noResultSection.style.display = 'none';
+                                            recipesSection.innerHTML = '';
+                                            recipesContainingIngredient.forEach(recipe => {
+                                                const article = document.createElement('article');
+                                                const image = document.createElement('div');
+                                                image.classList.add('image');
+                                                const information = document.createElement('div');
+                                                information.classList.add('information');
+                                                const title_time = document.createElement('div');
+                                                title_time.classList.add('title_time');
+                                                const title = document.createElement('div');
+                                                title.classList.add('title');
+                                                title.innerText = recipe.name;
+                                                const time = document.createElement('div');
+                                                time.classList.add('time');
+                                                time.innerText = recipe.time + ' min';
+                                                const timeIcon = document.createElement('i');
+                                                timeIcon.classList.add('fa-regular');
+                                                timeIcon.classList.add('fa-clock');
+                                                const ingredients_description = document.createElement('div');
+                                                ingredients_description.classList.add('ingredients_description');
+                                                const divIngredients = document.createElement('div');
+                                                divIngredients.classList.add('ingredients');
+                                                const description = document.createElement('div');
+                                                description.classList.add('description');
+                                                description.innerText = recipe.description;
+                                                article.appendChild(image);
+                                                article.appendChild(information);
+                                                information.appendChild(title_time);
+                                                information.appendChild(ingredients_description);
+                                                title_time.appendChild(title);
+                                                title_time.appendChild(time);
+                                                time.prepend(timeIcon);
+                                                ingredients_description.appendChild(divIngredients);
+                                                ingredients_description.appendChild(description);
+                                                recipe.ingredients.forEach(ingredients => {
+                                                    let quantity = ingredients.quantity;
+                                                    let ingredient = ingredients.ingredient;
+                                                    let unit = ingredients.unit;
+                                                    const oneIngredient = document.createElement('div');
+                                                    oneIngredient.classList.add('oneIngredient');
+                                                    const divQuantity = document.createElement('div');
+                                                    divQuantity.classList.add('quantity');
+                                                    if (unit) {
+                                                        oneIngredient.innerText = ingredient + ':' + ' ';
+                                                        divQuantity.innerText = quantity + ' ' + unit;
+                                                    } else if (quantity) {
+                                                        oneIngredient.innerText = ingredient + ': ';
+                                                        divQuantity.innerText = quantity;
+                                                    } else {
+                                                        oneIngredient.innerText = ingredient;
+                                                    }
+                                                    ingredients_description.appendChild(oneIngredient);
+                                                    divIngredients.appendChild(oneIngredient);
+                                                    oneIngredient.appendChild(divQuantity);
+                                                });
+                                                recipesSection.appendChild(article);
+                                            });
+                                        }
+                                    }
+
+                                    createElement()
+
+                                })
+                            });
+                        }
+                    })
+                }
+
+
+
+                showList()
+                maskList()
                 createTag();
                 deleteTag();
-
-
-                document.addEventListener('click', (event) => {
-                    const ul = document.querySelector('.options-ingredients');
-                    const estMonElement = event.target === container || container.contains(event.target);
-                    const estMonBouton = event.target === inputAngle;
-                    if (!estMonBouton && !estMonElement) {
-                        ul.style.display = 'none';
-                        ul.innerHTML = '';
-                        input.removeAttribute('id', 'ingredients-click');
-                        input.setAttribute('id', 'ingredients');
-                        input.removeAttribute('placeholder', 'Rechercher un ingredient');
-                        input.setAttribute('placeholder', 'Ingredients');
-                        inputAngle.style.transform = 'rotate(0deg)';
-                    }
-                });
+                filterFunction()
 
             }
+
+            /*const arrayTitleDom = []
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    arrayTitleDom.length = 0;
+                    const titlesDOM = document.querySelectorAll(".title")
+                    titlesDOM.forEach(titleDOM => {
+                        console.log(titleDOM.textContent);
+                        arrayTitleDom.push(titleDOM.textContent)
+                    });
+            
+                } console.log(arrayTitleDom);
+            });*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -254,18 +444,7 @@ function filterBar() {
                 });
 
 
-                const arrayTitleDom = []
-                document.addEventListener('keydown', function (event) {
-                    if (event.key === 'Escape') {
-                        arrayTitleDom.length = 0;
-                        const titlesDOM = document.querySelectorAll(".title")
-                        titlesDOM.forEach(titleDOM => {
-                            console.log(titleDOM.textContent);
-                            arrayTitleDom.push(titleDOM.textContent)
-                        });
 
-                    } console.log(arrayTitleDom);
-                });
 
                 //afficher barre avec suggestion etc. 
                 //récupérer tout les éléments du dom présents.

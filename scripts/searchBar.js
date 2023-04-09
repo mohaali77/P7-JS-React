@@ -5,6 +5,7 @@ function searchBar() {
     const recipesTitle = document.querySelectorAll('.title');
     const recipesIngredients = document.querySelectorAll('.oneIngredient');
     const recipesDescription = document.querySelectorAll('.description');
+    let tagSection = document.querySelector('#tagSection')
     let recipes = [];
 
     // Récupération des recettes
@@ -12,10 +13,9 @@ function searchBar() {
         .then(response => response.json())
         .then(data => {
             recipes = data.recipes;
-
             searchBar.addEventListener('input', function () {
                 const searchValue = searchBar.value.toLowerCase().trim();
-
+                tagSection.innerHTML = '';
                 // Filtrage des recettes
                 const filteredRecipes = recipes.filter(recipe => {
                     const title = recipe.name.toLowerCase();
