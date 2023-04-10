@@ -275,6 +275,38 @@ input:focus {
     margin-left: 5px;
 }
 
+.tag-appareils {
+    background: #68d9a4;
+    font-size: 12px;
+    padding: 10px;
+    color: #ffff;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.tag-appareils i {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.tag-ustensiles {
+    background: #ed6504;
+    font-size: 12px;
+    padding: 10px;
+    color: #ffff;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.tag-ustensiles i {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
 #recipesSection {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
