@@ -312,10 +312,10 @@ function searchBar() {
                         }
 
                         //au clic sur le la flèche de l'input : 
-                        inputAngle.addEventListener('click', initializeFunction())
+                        inputAngle.addEventListener('click', initializeFunction)
 
                         //lors de la saisie de texte sur l'input :
-                        input.addEventListener('input', initializeFunction())
+                        input.addEventListener('input', initializeFunction)
                     }
 
                     //fonction qui va afficher la liste des ingrédients du filtre 
@@ -498,6 +498,15 @@ function searchBar() {
 
                     function createTag() {
 
+                        inputAngle.addEventListener('click', create);
+
+                        input.addEventListener('click', () => {
+                            input.addEventListener('input', () => {
+                                create()
+                            })
+
+                        })
+
                         function create() {
                             const ul = document.querySelector('.options-ingredients');
                             if (ul.style.display === 'grid') {
@@ -505,6 +514,7 @@ function searchBar() {
                                 list.forEach(li => {
                                     li.addEventListener('click', (event) => {
                                         const tagText = event.target.textContent;
+                                        console.log(1);
                                         if (!arrayTag.includes(tagText)) { // Vérifie si le tag n'est pas déjà dans le tableau
                                             arrayTag.push(tagText);
                                             const tagSection = document.querySelector('#tagSection');
@@ -533,13 +543,6 @@ function searchBar() {
                                 });
                             }
                         }
-
-                        inputAngle.addEventListener('click', create());
-
-                        input.addEventListener('click', () => {
-                            input.addEventListener('input', create())
-
-                        })
 
                     }
 
@@ -603,11 +606,13 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', filter())
+                        inputAngle.addEventListener('click', filter)
 
                         input.addEventListener('click', () => {
 
-                            input.addEventListener('input', filter())
+                            input.addEventListener('input', () => {
+                                filter()
+                            })
                         })
                     }
 
@@ -669,10 +674,12 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', deleteFunction())
+                        inputAngle.addEventListener('click', deleteFunction)
 
                         input.addEventListener('click', () => {
-                            input.addEventListener('input', deleteFunction())
+                            input.addEventListener('input', () => {
+                                deleteFunction()
+                            })
                         })
                     }
 
@@ -739,9 +746,9 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', initializeFunction())
+                        inputAngle.addEventListener('click', initializeFunction)
 
-                        input.addEventListener('input', initializeFunctiont())
+                        input.addEventListener('input', initializeFunction)
                     }
 
                     //fonction qui va afficher la liste des ingrédients du filtre 
@@ -958,10 +965,12 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', create());
+                        inputAngle.addEventListener('click', create);
 
                         input.addEventListener('click', () => {
-                            input.addEventListener('input', create())
+                            input.addEventListener('input', () => {
+                                create()
+                            })
 
                         })
 
@@ -1027,11 +1036,13 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', filter())
+                        inputAngle.addEventListener('click', filter)
 
                         input.addEventListener('click', () => {
+                            input.addEventListener('input', () => {
+                                filter()
+                            })
 
-                            input.addEventListener('input', filter())
                         })
                     }
 
@@ -1093,10 +1104,13 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', deleteFunction())
+                        inputAngle.addEventListener('click', deleteFunction)
 
                         input.addEventListener('click', () => {
-                            input.addEventListener('input', deleteFunction())
+                            input.addEventListener('input', () => {
+                                deleteFunction()
+                            })
+
                         })
                     }
 
@@ -1168,9 +1182,9 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', initializeFunction())
+                        inputAngle.addEventListener('click', initializeFunction)
 
-                        input.addEventListener('input', initializeFunction())
+                        input.addEventListener('input', initializeFunction)
                     }
 
                     function showFullList() {
@@ -1345,10 +1359,12 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', create());
+                        inputAngle.addEventListener('click', create);
 
                         input.addEventListener('click', () => {
-                            input.addEventListener('input', create())
+                            input.addEventListener('input', () => {
+                                create()
+                            })
 
                         })
 
@@ -1414,11 +1430,13 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', filter())
+                        inputAngle.addEventListener('click', filter)
 
                         input.addEventListener('click', () => {
+                            input.addEventListener('input', () => {
+                                filter()
+                            })
 
-                            input.addEventListener('input', filter())
                         })
                     }
 
@@ -1480,10 +1498,13 @@ function searchBar() {
                             }
                         }
 
-                        inputAngle.addEventListener('click', deleteFunction())
+                        inputAngle.addEventListener('click', deleteFunction)
 
                         input.addEventListener('click', () => {
-                            input.addEventListener('input', deleteFunction())
+                            input.addEventListener('input', () => {
+                                deleteFunction()
+                            })
+
                         })
                     }
 
