@@ -2,6 +2,7 @@ function searchBar() {
     const searchBar = document.querySelector('#search-bar');
     const recipesSection = document.querySelector('#recipesSection');
     const noResultSection = document.querySelector('#noResult');
+
     let tagSection = document.querySelector('#tagSection')
     let recipes = [];
     let recettesFiltre = []
@@ -18,14 +19,19 @@ function searchBar() {
                 if (searchBar.value.length >= 3) {
                     //on récupère la valeur saisie dans la barre de recherche dans une constante
                     const searchValue = searchBar.value.toLowerCase().trim();
+
                     // Filtrage des recettes
-                    let filteredRecipes = []
-                    filteredRecipes = recipes.filter(recipe => {
+                    let filteredRecipes = [];
+                    for (let i = 0; i < recipes.length; i++) {
+                        const recipe = recipes[i];
                         const title = recipe.name.toLowerCase();
                         const ingredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase()).join(' ');
                         const description = recipe.description.toLowerCase();
-                        return title.includes(searchValue) || ingredients.includes(searchValue) || description.includes(searchValue);
-                    });
+                        if (title.includes(searchValue) || ingredients.includes(searchValue) || description.includes(searchValue)) {
+                            filteredRecipes.push(recipe);
+                        }
+                    }
+
                     //on copie le tableau à chaque nouvelle recherche pour pouvoir l'exploiter dans les filtres
                     recettesFiltre = filteredRecipes.slice()
 
@@ -33,17 +39,15 @@ function searchBar() {
                     tagSection.innerHTML = '';
                     arrayTag.length = 0
 
-                    //si aucune recette n'est trouvé :
+                    // Affichage des recettes filtrées
                     if (filteredRecipes.length === 0) {
-                        //on affiche un message pour avertir
                         noResultSection.style.display = 'block';
                         recipesSection.innerHTML = '';
                     } else {
-
-                        // sinon on affiche les recettes disponible
                         noResultSection.style.display = 'none';
                         recipesSection.innerHTML = '';
-                        filteredRecipes.forEach(recipe => {
+                        for (let i = 0; i < filteredRecipes.length; i++) {
+                            const recipe = filteredRecipes[i];
                             const article = document.createElement('article');
                             const image = document.createElement('div');
                             image.classList.add('image');
@@ -76,10 +80,11 @@ function searchBar() {
                             time.prepend(timeIcon);
                             ingredients_description.appendChild(divIngredients);
                             ingredients_description.appendChild(description);
-                            recipe.ingredients.forEach(ingredients => {
-                                let quantity = ingredients.quantity;
-                                let ingredient = ingredients.ingredient;
-                                let unit = ingredients.unit;
+                            let j = 0;
+                            while (j < recipe.ingredients.length) {
+                                let quantity = recipe.ingredients[j].quantity;
+                                let ingredient = recipe.ingredients[j].ingredient;
+                                let unit = recipe.ingredients[j].unit;
                                 const oneIngredient = document.createElement('div');
                                 oneIngredient.classList.add('oneIngredient');
                                 const divQuantity = document.createElement('div');
@@ -95,22 +100,16 @@ function searchBar() {
                                 }
                                 ingredients_description.appendChild(oneIngredient);
                                 divIngredients.appendChild(oneIngredient);
-                                oneIngredient.appendChild(divQuantity);
-                            });
+                                j++;
+                            }
                             recipesSection.appendChild(article);
-                        });
-
-
+                        }
                     }
-
-
                 } else {
                     recettesFiltre.length = 0
                     recettesFiltreAvecTag.length = 0
                     arrayTag.length = 0
                     tagSection.innerHTML = '';
-
-
                     noResultSection.style.display = 'none';
                     recipesSection.innerHTML = '';
                     recipes.forEach(recipe => {
@@ -169,6 +168,7 @@ function searchBar() {
                         });
                         recipesSection.appendChild(article);
                     });
+
                 }
             });
 
@@ -1523,9 +1523,18 @@ function searchBar() {
             }
 
             filterBar()
-
-        })
-    //.catch(error => console.log(error));
+        });
 }
 
 searchBar()
+
+
+
+
+
+
+
+
+
+
+
