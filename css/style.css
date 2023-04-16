@@ -382,3 +382,15 @@ article .ingredients .quantity {
 #noResult {
     display: none;
 }
+
+#search-bar-container {
+    display: flex;
+    justify-items: center;
+}
+
+#search-bar-container i {
+
+    font-size: 23px;
+    margin-left: -35px;
+    margin-bottom: 20px;
+}
