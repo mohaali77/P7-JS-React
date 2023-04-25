@@ -66,7 +66,6 @@ function searchBar() {
                             divIngredients.classList.add('ingredients');
                             const description = document.createElement('div');
                             description.classList.add('description');
-                            description.innerText = recipe.description;
                             article.appendChild(image);
                             article.appendChild(information);
                             information.appendChild(title_time);
@@ -172,8 +171,10 @@ function searchBar() {
                 }
             });
 
+            //fonction qui va gérer les filtre des recettes
             function filterBar() {
 
+                //fonction qui permettra de recréer les éléments
                 function createElement() {
 
                     if (recettesFiltreAvecTag.length === 0) {
@@ -241,6 +242,7 @@ function searchBar() {
                     }
                 }
 
+                //fonction qui va gérer le filtre des ingrédients
                 function ingredientsFilter() {
 
                     //Récupération éléments DOM
@@ -249,7 +251,7 @@ function searchBar() {
                     const inputAngle = container.querySelector('.fa-angle-down')
                     let arrayIngredients = [];
 
-                    //fonction qui va permettre d'initialiser le tableau arrayIngredients
+                    //fonction qui va permettre d'initialiser le tableau des ingrédients
                     function initializeArrayIngredient() {
 
                         function initializeFunction() {
@@ -318,7 +320,7 @@ function searchBar() {
                         input.addEventListener('input', initializeFunction)
                     }
 
-                    //fonction qui va afficher la liste des ingrédients du filtre 
+                    //fonction qui va afficher la liste 
                     function showFullList() {
 
                         //lors du clic sur la flèche
@@ -473,7 +475,7 @@ function searchBar() {
 
                     }
 
-                    //fonction qui va masquer la liste des ingrédients du filtre
+                    //fonction qui va masquer la liste
                     function maskList() {
                         //lors du clic
                         document.addEventListener('click', (event) => {
@@ -496,6 +498,7 @@ function searchBar() {
                         });
                     }
 
+                    //fonction qui va créer les tags
                     function createTag() {
 
                         inputAngle.addEventListener('click', create);
@@ -546,6 +549,7 @@ function searchBar() {
 
                     }
 
+                    //fonction qui va filtrer les recettes
                     function filterFunction() {
 
                         function filter() {
@@ -616,6 +620,7 @@ function searchBar() {
                         })
                     }
 
+                    //fonction qui va supprimer les filtre des recettes
                     function deleteTag() {
 
                         function deleteFunction() {
@@ -692,6 +697,7 @@ function searchBar() {
 
                 }
 
+                //fonction qui va gérer le filtre des appareils
                 function appliancesFilter() {
 
                     //Récupération éléments DOM
@@ -701,7 +707,7 @@ function searchBar() {
                     let arrayAppliances = [];
 
 
-                    //fonction qui va permettre d'initialiser le tableau arrayIngredients
+                    //fonction qui va permettre d'initialiser le tableau des appareils
                     function initializeArrayAppareils() {
 
                         function initializeFunction() {
@@ -751,7 +757,7 @@ function searchBar() {
                         input.addEventListener('input', initializeFunction)
                     }
 
-                    //fonction qui va afficher la liste des ingrédients du filtre 
+                    //fonction qui va afficher la liste 
                     function showFullList() {
 
                         //lors du clic sur la flèche
@@ -905,7 +911,7 @@ function searchBar() {
 
                     }
 
-                    //fonction qui va masquer la liste des ingrédients du filtre
+                    //fonction qui va masquer la liste
                     function maskList() {
                         document.addEventListener('click', (event) => {
                             const ul = document.querySelector('.options-appareils');
@@ -927,6 +933,7 @@ function searchBar() {
                         });
                     }
 
+                    //fonction qui va créer les tags
                     function createTag() {
 
                         function create() {
@@ -976,6 +983,7 @@ function searchBar() {
 
                     }
 
+                    //fonction qui va filtrer les recettes
                     function filterFunction() {
 
                         function filter() {
@@ -1046,6 +1054,7 @@ function searchBar() {
                         })
                     }
 
+                    //fonction qui va supprimer les filtre des recettes
                     function deleteTag() {
 
                         function deleteFunction() {
@@ -1123,6 +1132,7 @@ function searchBar() {
 
                 }
 
+                //fonction qui va gérer le filtre des ustensiles
                 function ustensilsFilter() {
 
                     const container = document.querySelector('#container-ustensiles')
@@ -1130,6 +1140,7 @@ function searchBar() {
                     const inputAngle = container.querySelector('.fa-angle-down')
                     let arrayUstensiles = [];
 
+                    //fonction qui va initialiser le tableau des ustensiles
                     function initializeArrayUstensiles() {
 
                         function initializeFunction() {
@@ -1187,6 +1198,7 @@ function searchBar() {
                         input.addEventListener('input', initializeFunction)
                     }
 
+                    //fonction qui afficher la liste
                     function showFullList() {
 
                         inputAngle.addEventListener('click', () => {
@@ -1301,6 +1313,7 @@ function searchBar() {
 
                     }
 
+                    //fonction qui va masquer la liste
                     function maskList() {
                         document.addEventListener('click', (event) => {
                             const ul = document.querySelector('.options-ustensiles');
@@ -1322,6 +1335,7 @@ function searchBar() {
                         });
                     }
 
+                    //fonction qui va creer les tag
                     function createTag() {
 
                         function create() {
@@ -1370,6 +1384,7 @@ function searchBar() {
 
                     }
 
+                    //fonction qui va filtrer les recettes
                     function filterFunction() {
 
                         function filter() {
@@ -1440,6 +1455,7 @@ function searchBar() {
                         })
                     }
 
+                    //fonction qui va supprimer les filtre des recettes
                     function deleteTag() {
 
                         function deleteFunction() {
