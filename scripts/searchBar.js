@@ -4,7 +4,7 @@ function searchBar() {
     const noResultSection = document.querySelector('#noResult');
     let tagSection = document.querySelector('#tagSection')
     let recipes = [];
-    let recettesFiltre = []
+    let recettesFiltre = [];
     let recettesFiltreAvecTag = []
     let arrayTag = []
 
